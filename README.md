@@ -2,7 +2,7 @@
 
 - React js
 - GraphQL
-- GraphqlQL code gen
+- GraphQL code gen
 
 ---
 
