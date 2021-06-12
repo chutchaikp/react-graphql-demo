@@ -1,0 +1,28 @@
+query GetTeams {
+  teams {
+    id
+    name
+    country
+  }
+}
+
+query GetTodos {
+  todos {
+    id
+    title
+    finished
+  }
+}
+
+query GetAll {
+  teams {
+    id
+    name
+    country
+  }
+  todos {
+    id
+    title
+    finished
+  }
+}

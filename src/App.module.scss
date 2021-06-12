@@ -1,0 +1,154 @@
+
+// @font-face {
+//   font-family: 'MyFont';
+//   src: local('MyFont'), url(./fonts/MyFont.woff) format('woff');  
+// }
+
+@font-face {
+	font-family: fakt-web;
+	src: 
+
+	url(./fonts/FaktPro-Blond.woff2) format("woff2"),
+	url(./fonts/FaktPro-Blond.woff) format("woff"),
+	url(./fonts/FaktPro-Blond.ttf) format("truetype");
+	font-weight: 300;
+	font-style: normal
+}
+
+@font-face {
+	font-family: fakt-web;
+	src: 
+	url(./fonts/FaktPro-Normal.woff2) format("woff2"),
+	url(./fonts/FaktPro-Normal.woff) format("woff"),
+	url(./fonts/FaktPro-Normal.ttf) format("truetype");
+	font-weight: 400;
+	font-style: normal
+}
+
+@font-face {
+	font-family: fakt-web;
+	src: 
+	url(./fonts/FaktPro-Medium.woff2) format("woff2"),
+	url(./fonts/FaktPro-Medium.woff) format("woff"),
+	url(./fonts/FaktPro-Medium.ttf) format("truetype");
+	font-weight: 500;
+	font-style: normal
+}
+
+html {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	text-rendering: geometricPrecision;
+	text-rendering: auto;
+}
+
+body {
+	font-family: fakt-web, sans-serif;
+	font-size: 18px;
+	line-height: 2;
+	color: rgba(0,0,0,.86);
+	background-color: #fff
+}
+
+body,button,input,select,textarea {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+
+button,input,select,textarea {
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit
+}
+
+a {
+	color: #0a84ae;
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
+.h1,.h2,.h3,.h4,.h5,.h6,
+	h1,h2,h3,h4,h5,h6 {
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	color: rgba(0,0,0,.4)
+}
+p {
+	font-size: 16px;
+	line-height: 1.9;
+}
+
+
+
+.AppHeader {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.07); 
+	// box-shadow: 0 2px 2px 0 rgb(0, 0, 0);
+	// box-shadow: 0 2px 2px 0 rgb(0, 0, 0/ 0.07);
+	// box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.07);
+} 
+.AppLink {	
+	list-style: none;
+    display: flex;
+    
+    justify-content: space-around;
+    text-decoration: none;
+
+		li{				
+			padding: 0rem 0.2rem 1rem; 
+
+			a {
+				text-decoration: none;
+				color: rgba($color: #000000, $alpha: .5);
+			}
+
+			a:active {
+				color: #666
+			}
+
+			a:hover {
+				color: #333;				
+			}
+		}		
+		
+	
+}
+
+.login {
+	display: flex;
+  justify-content: center;
+	align-items: center;
+  min-height: 50vh;	
+}
+
+form {
+	width: 300px;	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	// each child
+ 	* {
+		margin: 0.35rem;
+	}
+}
+
+.todo{	
+	
+}
+ 
+.todoStrike{	
+	text-decoration: line-through;
+}
+
+.box {
+	* {
+		font-size: 14px;
+		padding: 3px 10px;
+		box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+		text-transform: 
+			uppercase;
+	}
+}
