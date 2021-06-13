@@ -38,7 +38,18 @@ function AppHeader() {
 							<Link to="/login">JWT</Link>
 						</li>
 					</ul>
+
+					<ul className={styles.AppLink}>
+						<li className={styles.box}>
+							<Link to="/services" >ประเภทงาน</Link>
+						</li>
+						<li className={styles.box}>
+							<Link to="/serviceadd" >เพิ่มประเภทงาน</Link>
+						</li>
+					</ul>
 				</div>
+
+
 			</div>
 		</div>
 	)

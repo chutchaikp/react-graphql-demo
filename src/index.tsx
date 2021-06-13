@@ -4,9 +4,10 @@ import { ApolloClient, ApolloProvider, createHttpLink, DefaultOptions, InMemoryC
 import { setContext } from '@apollo/client/link/context';
 import MyRouter from './MyRouter';
 import { BrowserRouter } from 'react-router-dom';
-import { getTokens } from './common/TokenMan';
+// import { getTokens } from './common/TokenMan';
 // import { Auth0Provider } from '@auth0/auth0-react'
-
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
+import theme from "./theme"
 require('dotenv').config()
 
 const { REACT_APP_GRAPHQL_SCHEMA } = process.env;
@@ -55,7 +56,10 @@ ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
       <ApolloProvider client={client}>
-        <MyRouter />
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <ChakraProvider>
+          <MyRouter />
+        </ChakraProvider>
       </ApolloProvider>
     </React.StrictMode>
   </BrowserRouter>,

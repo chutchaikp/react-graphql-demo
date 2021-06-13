@@ -32,6 +32,18 @@ export const Routes = [
 		path: ["/todo2", "todo2"],
 		component: "AppTodo"
 	},
+	{
+		path: ["/services", "services"],
+		component: "Services"
+	},
+	{
+		path: ["/service/:id", "service"],
+		component: "Service"
+	},
+	{
+		path: ["/serviceadd/", "serviceadd"],
+		component: "ServiceAdd"
+	},
 
 
 

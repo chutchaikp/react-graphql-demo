@@ -1,0 +1,45 @@
+# mutation CreateTeam($team: TeamInput) {
+#   createTeam(input: { data: $team }) {
+#     team {
+#       id
+#       name
+#       country
+#     }
+#   }
+# }
+
+mutation CreateService($service: ServiceInput) {
+  createService(input: { data: $service }) {
+    service {
+      id
+      name
+      createdAt
+    }
+  }
+}
+
+mutation UpdateService($id: ID!, $service: editServiceInput) {
+  updateService(input: { data: $service, where: { id: $id } }) {
+    service {
+      id
+    }
+  }
+}
+
+# mutation {
+#   deleteUser(input: { where: { id: "5b28f1747c739e4afb48605c" } }) {
+#     user {
+#       username
+#       email
+#     }
+#   }
+# }
+
+mutation DeleteService($id: ID!) {
+  deleteService(input: { where: { id: $id } }) {
+    service {
+      id
+      name
+    }
+  }
+}

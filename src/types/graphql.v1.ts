@@ -85,10 +85,13 @@ export type LocaleInput = {
 };
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Team | TeamConnection | TeamAggregator | TeamGroupBy | TeamConnectionId | TeamConnection_Id | TeamConnectionCreatedAt | TeamConnectionUpdatedAt | TeamConnectionName | TeamConnectionCountry | TeamConnectionPublished_At | CreateTeamPayload | UpdateTeamPayload | DeleteTeamPayload | Todo | TodoConnection | TodoAggregator | TodoGroupBy | TodoConnectionId | TodoConnection_Id | TodoConnectionCreatedAt | TodoConnectionUpdatedAt | TodoConnectionTitle | TodoConnectionFinished | TodoConnectionPublished_At | CreateTodoPayload | UpdateTodoPayload | DeleteTodoPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnection_Id | ServiceConnectionCreatedAt | ServiceConnectionUpdatedAt | ServiceConnectionName | ServiceConnectionDesc | ServiceConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | Team | TeamConnection | TeamAggregator | TeamGroupBy | TeamConnectionId | TeamConnection_Id | TeamConnectionCreatedAt | TeamConnectionUpdatedAt | TeamConnectionName | TeamConnectionCountry | TeamConnectionPublished_At | CreateTeamPayload | UpdateTeamPayload | DeleteTeamPayload | Todo | TodoConnection | TodoAggregator | TodoGroupBy | TodoConnectionId | TodoConnection_Id | TodoConnectionCreatedAt | TodoConnectionUpdatedAt | TodoConnectionTitle | TodoConnectionFinished | TodoConnectionPublished_At | CreateTodoPayload | UpdateTodoPayload | DeleteTodoPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createService?: Maybe<CreateServicePayload>;
+  updateService?: Maybe<UpdateServicePayload>;
+  deleteService?: Maybe<DeleteServicePayload>;
   createTeam?: Maybe<CreateTeamPayload>;
   updateTeam?: Maybe<UpdateTeamPayload>;
   deleteTeam?: Maybe<DeleteTeamPayload>;
@@ -117,6 +120,21 @@ export type Mutation = {
   forgotPassword?: Maybe<UserPermissionsPasswordPayload>;
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
+};
+
+
+export type MutationCreateServiceArgs = {
+  input?: Maybe<CreateServiceInput>;
+};
+
+
+export type MutationUpdateServiceArgs = {
+  input?: Maybe<UpdateServiceInput>;
+};
+
+
+export type MutationDeleteServiceArgs = {
+  input?: Maybe<DeleteServiceInput>;
 };
 
 
@@ -243,6 +261,9 @@ export enum PublicationState {
 
 export type Query = {
   __typename?: 'Query';
+  service?: Maybe<Service>;
+  services?: Maybe<Array<Maybe<Service>>>;
+  servicesConnection?: Maybe<ServiceConnection>;
   team?: Maybe<Team>;
   teams?: Maybe<Array<Maybe<Team>>>;
   teamsConnection?: Maybe<TeamConnection>;
@@ -259,6 +280,29 @@ export type Query = {
   users?: Maybe<Array<Maybe<UsersPermissionsUser>>>;
   usersConnection?: Maybe<UsersPermissionsUserConnection>;
   me?: Maybe<UsersPermissionsMe>;
+};
+
+
+export type QueryServiceArgs = {
+  id: Scalars['ID'];
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryServicesArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryServicesConnectionArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
 };
 
 
@@ -376,6 +420,91 @@ export type RoleInput = {
   type?: Maybe<Scalars['String']>;
   permissions?: Maybe<Array<Maybe<Scalars['ID']>>>;
   users?: Maybe<Array<Maybe<Scalars['ID']>>>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
+export type Service = {
+  __typename?: 'Service';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  name?: Maybe<Scalars['String']>;
+  desc?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+};
+
+export type ServiceAggregator = {
+  __typename?: 'ServiceAggregator';
+  count?: Maybe<Scalars['Int']>;
+  totalCount?: Maybe<Scalars['Int']>;
+};
+
+export type ServiceConnection = {
+  __typename?: 'ServiceConnection';
+  values?: Maybe<Array<Maybe<Service>>>;
+  groupBy?: Maybe<ServiceGroupBy>;
+  aggregate?: Maybe<ServiceAggregator>;
+};
+
+export type ServiceConnectionCreatedAt = {
+  __typename?: 'ServiceConnectionCreatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ServiceConnection>;
+};
+
+export type ServiceConnectionDesc = {
+  __typename?: 'ServiceConnectionDesc';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ServiceConnection>;
+};
+
+export type ServiceConnectionId = {
+  __typename?: 'ServiceConnectionId';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ServiceConnection>;
+};
+
+export type ServiceConnectionName = {
+  __typename?: 'ServiceConnectionName';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ServiceConnection>;
+};
+
+export type ServiceConnectionPublished_At = {
+  __typename?: 'ServiceConnectionPublished_at';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ServiceConnection>;
+};
+
+export type ServiceConnectionUpdatedAt = {
+  __typename?: 'ServiceConnectionUpdatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ServiceConnection>;
+};
+
+export type ServiceConnection_Id = {
+  __typename?: 'ServiceConnection_id';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ServiceConnection>;
+};
+
+export type ServiceGroupBy = {
+  __typename?: 'ServiceGroupBy';
+  id?: Maybe<Array<Maybe<ServiceConnectionId>>>;
+  _id?: Maybe<Array<Maybe<ServiceConnection_Id>>>;
+  createdAt?: Maybe<Array<Maybe<ServiceConnectionCreatedAt>>>;
+  updatedAt?: Maybe<Array<Maybe<ServiceConnectionUpdatedAt>>>;
+  name?: Maybe<Array<Maybe<ServiceConnectionName>>>;
+  desc?: Maybe<Array<Maybe<ServiceConnectionDesc>>>;
+  published_at?: Maybe<Array<Maybe<ServiceConnectionPublished_At>>>;
+};
+
+export type ServiceInput = {
+  name?: Maybe<Scalars['String']>;
+  desc?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
 };
@@ -1014,6 +1143,15 @@ export type CreateRolePayload = {
   role?: Maybe<UsersPermissionsRole>;
 };
 
+export type CreateServiceInput = {
+  data?: Maybe<ServiceInput>;
+};
+
+export type CreateServicePayload = {
+  __typename?: 'createServicePayload';
+  service?: Maybe<Service>;
+};
+
 export type CreateTeamInput = {
   data?: Maybe<TeamInput>;
 };
@@ -1057,6 +1195,15 @@ export type DeleteRoleInput = {
 export type DeleteRolePayload = {
   __typename?: 'deleteRolePayload';
   role?: Maybe<UsersPermissionsRole>;
+};
+
+export type DeleteServiceInput = {
+  where?: Maybe<InputId>;
+};
+
+export type DeleteServicePayload = {
+  __typename?: 'deleteServicePayload';
+  service?: Maybe<Service>;
 };
 
 export type DeleteTeamInput = {
@@ -1123,6 +1270,14 @@ export type EditRoleInput = {
   updated_by?: Maybe<Scalars['ID']>;
 };
 
+export type EditServiceInput = {
+  name?: Maybe<Scalars['String']>;
+  desc?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export type EditTeamInput = {
   name?: Maybe<Scalars['String']>;
   country?: Maybe<Scalars['String']>;
@@ -1163,6 +1318,16 @@ export type UpdateRolePayload = {
   role?: Maybe<UsersPermissionsRole>;
 };
 
+export type UpdateServiceInput = {
+  where?: Maybe<InputId>;
+  data?: Maybe<EditServiceInput>;
+};
+
+export type UpdateServicePayload = {
+  __typename?: 'updateServicePayload';
+  service?: Maybe<Service>;
+};
+
 export type UpdateTeamInput = {
   where?: Maybe<InputId>;
   data?: Maybe<EditTeamInput>;
@@ -1193,6 +1358,55 @@ export type UpdateUserPayload = {
   user?: Maybe<UsersPermissionsUser>;
 };
 
+export type CreateServiceMutationVariables = Exact<{
+  service?: Maybe<ServiceInput>;
+}>;
+
+
+export type CreateServiceMutation = (
+  { __typename?: 'Mutation' }
+  & { createService?: Maybe<(
+    { __typename?: 'createServicePayload' }
+    & { service?: Maybe<(
+      { __typename?: 'Service' }
+      & Pick<Service, 'id' | 'name' | 'createdAt'>
+    )> }
+  )> }
+);
+
+export type UpdateServiceMutationVariables = Exact<{
+  id: Scalars['ID'];
+  service?: Maybe<EditServiceInput>;
+}>;
+
+
+export type UpdateServiceMutation = (
+  { __typename?: 'Mutation' }
+  & { updateService?: Maybe<(
+    { __typename?: 'updateServicePayload' }
+    & { service?: Maybe<(
+      { __typename?: 'Service' }
+      & Pick<Service, 'id'>
+    )> }
+  )> }
+);
+
+export type DeleteServiceMutationVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type DeleteServiceMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteService?: Maybe<(
+    { __typename?: 'deleteServicePayload' }
+    & { service?: Maybe<(
+      { __typename?: 'Service' }
+      & Pick<Service, 'id' | 'name'>
+    )> }
+  )> }
+);
+
 export type AppLoginMutationVariables = Exact<{
   email: Scalars['String'];
   password: Scalars['String'];
@@ -1220,6 +1434,30 @@ export type CreateTeamMutation = (
       { __typename?: 'Team' }
       & Pick<Team, 'id' | 'name' | 'country'>
     )> }
+  )> }
+);
+
+export type GatServicesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GatServicesQuery = (
+  { __typename?: 'Query' }
+  & { services?: Maybe<Array<Maybe<(
+    { __typename?: 'Service' }
+    & Pick<Service, 'id' | 'name'>
+  )>>> }
+);
+
+export type GetServiceQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetServiceQuery = (
+  { __typename?: 'Query' }
+  & { service?: Maybe<(
+    { __typename?: 'Service' }
+    & Pick<Service, 'id' | 'name' | 'desc' | 'updatedAt'>
   )> }
 );
 
@@ -1260,6 +1498,115 @@ export type GetAllQuery = (
 );
 
 
+export const CreateServiceDocument = gql`
+    mutation CreateService($service: ServiceInput) {
+  createService(input: {data: $service}) {
+    service {
+      id
+      name
+      createdAt
+    }
+  }
+}
+    `;
+export type CreateServiceMutationFn = Apollo.MutationFunction<CreateServiceMutation, CreateServiceMutationVariables>;
+
+/**
+ * __useCreateServiceMutation__
+ *
+ * To run a mutation, you first call `useCreateServiceMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateServiceMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createServiceMutation, { data, loading, error }] = useCreateServiceMutation({
+ *   variables: {
+ *      service: // value for 'service'
+ *   },
+ * });
+ */
+export function useCreateServiceMutation(baseOptions?: Apollo.MutationHookOptions<CreateServiceMutation, CreateServiceMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateServiceMutation, CreateServiceMutationVariables>(CreateServiceDocument, options);
+      }
+export type CreateServiceMutationHookResult = ReturnType<typeof useCreateServiceMutation>;
+export type CreateServiceMutationResult = Apollo.MutationResult<CreateServiceMutation>;
+export type CreateServiceMutationOptions = Apollo.BaseMutationOptions<CreateServiceMutation, CreateServiceMutationVariables>;
+export const UpdateServiceDocument = gql`
+    mutation UpdateService($id: ID!, $service: editServiceInput) {
+  updateService(input: {data: $service, where: {id: $id}}) {
+    service {
+      id
+    }
+  }
+}
+    `;
+export type UpdateServiceMutationFn = Apollo.MutationFunction<UpdateServiceMutation, UpdateServiceMutationVariables>;
+
+/**
+ * __useUpdateServiceMutation__
+ *
+ * To run a mutation, you first call `useUpdateServiceMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateServiceMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateServiceMutation, { data, loading, error }] = useUpdateServiceMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      service: // value for 'service'
+ *   },
+ * });
+ */
+export function useUpdateServiceMutation(baseOptions?: Apollo.MutationHookOptions<UpdateServiceMutation, UpdateServiceMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateServiceMutation, UpdateServiceMutationVariables>(UpdateServiceDocument, options);
+      }
+export type UpdateServiceMutationHookResult = ReturnType<typeof useUpdateServiceMutation>;
+export type UpdateServiceMutationResult = Apollo.MutationResult<UpdateServiceMutation>;
+export type UpdateServiceMutationOptions = Apollo.BaseMutationOptions<UpdateServiceMutation, UpdateServiceMutationVariables>;
+export const DeleteServiceDocument = gql`
+    mutation DeleteService($id: ID!) {
+  deleteService(input: {where: {id: $id}}) {
+    service {
+      id
+      name
+    }
+  }
+}
+    `;
+export type DeleteServiceMutationFn = Apollo.MutationFunction<DeleteServiceMutation, DeleteServiceMutationVariables>;
+
+/**
+ * __useDeleteServiceMutation__
+ *
+ * To run a mutation, you first call `useDeleteServiceMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteServiceMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteServiceMutation, { data, loading, error }] = useDeleteServiceMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteServiceMutation(baseOptions?: Apollo.MutationHookOptions<DeleteServiceMutation, DeleteServiceMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteServiceMutation, DeleteServiceMutationVariables>(DeleteServiceDocument, options);
+      }
+export type DeleteServiceMutationHookResult = ReturnType<typeof useDeleteServiceMutation>;
+export type DeleteServiceMutationResult = Apollo.MutationResult<DeleteServiceMutation>;
+export type DeleteServiceMutationOptions = Apollo.BaseMutationOptions<DeleteServiceMutation, DeleteServiceMutationVariables>;
 export const AppLoginDocument = gql`
     mutation AppLogin($email: String!, $password: String!) {
   login(input: {identifier: $email, password: $password}) {
@@ -1331,6 +1678,79 @@ export function useCreateTeamMutation(baseOptions?: Apollo.MutationHookOptions<C
 export type CreateTeamMutationHookResult = ReturnType<typeof useCreateTeamMutation>;
 export type CreateTeamMutationResult = Apollo.MutationResult<CreateTeamMutation>;
 export type CreateTeamMutationOptions = Apollo.BaseMutationOptions<CreateTeamMutation, CreateTeamMutationVariables>;
+export const GatServicesDocument = gql`
+    query GatServices {
+  services {
+    id
+    name
+  }
+}
+    `;
+
+/**
+ * __useGatServicesQuery__
+ *
+ * To run a query within a React component, call `useGatServicesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGatServicesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGatServicesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGatServicesQuery(baseOptions?: Apollo.QueryHookOptions<GatServicesQuery, GatServicesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GatServicesQuery, GatServicesQueryVariables>(GatServicesDocument, options);
+      }
+export function useGatServicesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GatServicesQuery, GatServicesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GatServicesQuery, GatServicesQueryVariables>(GatServicesDocument, options);
+        }
+export type GatServicesQueryHookResult = ReturnType<typeof useGatServicesQuery>;
+export type GatServicesLazyQueryHookResult = ReturnType<typeof useGatServicesLazyQuery>;
+export type GatServicesQueryResult = Apollo.QueryResult<GatServicesQuery, GatServicesQueryVariables>;
+export const GetServiceDocument = gql`
+    query GetService($id: ID!) {
+  service(id: $id) {
+    id
+    name
+    desc
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useGetServiceQuery__
+ *
+ * To run a query within a React component, call `useGetServiceQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetServiceQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetServiceQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetServiceQuery(baseOptions: Apollo.QueryHookOptions<GetServiceQuery, GetServiceQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetServiceQuery, GetServiceQueryVariables>(GetServiceDocument, options);
+      }
+export function useGetServiceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServiceQuery, GetServiceQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetServiceQuery, GetServiceQueryVariables>(GetServiceDocument, options);
+        }
+export type GetServiceQueryHookResult = ReturnType<typeof useGetServiceQuery>;
+export type GetServiceLazyQueryHookResult = ReturnType<typeof useGetServiceLazyQuery>;
+export type GetServiceQueryResult = Apollo.QueryResult<GetServiceQuery, GetServiceQueryVariables>;
 export const GetTeamsDocument = gql`
     query GetTeams {
   teams {

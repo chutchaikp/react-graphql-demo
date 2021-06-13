@@ -1,0 +1,22 @@
+query GetServices {
+  services {
+    id
+    name
+  }
+}
+
+# query GetServiceByID($id: ID) {
+#   services(where: { id: $id }) {
+#     id
+#     name
+#   }
+# }
+
+query GetService($id: ID!) {
+  service(id: $id) {
+    id
+    name
+    desc
+    updatedAt
+  }
+}
