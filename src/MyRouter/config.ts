@@ -45,6 +45,19 @@ export const Routes = [
 		component: "ServiceAdd"
 	},
 
+	{
+		path: ["/products", "products"],
+		component: "Products"
+	},
+	{
+		path: ["/product/:id", "product"],
+		component: "Product"
+	},
+	{
+		path: ["/productadd/", "productadd"],
+		component: "ProductAdd"
+	},
+
 
 
 

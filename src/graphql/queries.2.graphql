@@ -20,3 +20,12 @@ query GetService($id: ID!) {
     updatedAt
   }
 }
+
+query SearchByName($name_contains: String!) {
+  services(where: { name_contains: $name_contains }) {
+    id
+    name
+    desc
+    updatedAt
+  }
+}

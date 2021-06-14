@@ -1,18 +1,34 @@
 import { AddIcon, DeleteIcon, EditIcon } from '@chakra-ui/icons';
-import { Button, Checkbox, Flex, HStack, Text } from '@chakra-ui/react';
+import { Box, Button, Checkbox, Flex, Heading, HStack, Input, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import React, { useState } from 'react'
 import styles from '../App.module.css'
-import { useDeleteServiceMutation, useGatServicesQuery } from '../types/graphql.v1';
+import { useDeleteServiceMutation, useGetServicesQuery, useSearchByNameLazyQuery } from '../types/graphql.v1';
 
-const Services = () => {
+
+function Mysearch(props: any) {
+	return (<HStack>
+		<Input size="sm" rounded="none" value={props.search} onChange={e => props.setSearch(e.target.value)} />
+		<Button size="sm" rounded="none" colorScheme="blue" onClick={async () => {
+			// TODO use lazyHook
+			await props.searchByName({
+				variables: {
+					name_contains: props.search
+				}
+			});
+		}}> {props.loading ? 'กำลังค้นหา' : 'ค้นหา'}  </Button>
+	</HStack>);
+}
+
+
+const Services: React.FC = () => {
+	const [search, setSearch] = useState<string>("");
 	const [services, setServices] = useState<any>([])
 
-	const { data, loading, error } = useGatServicesQuery(
+	const { data, loading, error } = useGetServicesQuery(
 		{
 			onCompleted: (data) => {
 				const gdata = [...data.services || []]
-				// selected for checkbox handler
 				const gDataWithSelectProps = gdata.map((g) => {
 					return { ...g, selected: false }
 				}); // return new object with selected prop
@@ -21,10 +37,16 @@ const Services = () => {
 		}
 	)
 
-	const [deleteServiceMutation, dm] = useDeleteServiceMutation({
-		// variables: {
-		// 	 id: // value for 'id'
-		// },
+	const [deleteServiceMutation, dm] = useDeleteServiceMutation();
+	const [searchByName, sq] = useSearchByNameLazyQuery({
+		onCompleted: (data) => {
+			debugger;
+			const gdata = [...data.services || []];
+			const gDataWithSelectProps = gdata.map((g) => {
+				return { ...g, selected: false }
+			});
+			setServices(gDataWithSelectProps);
+		}
 	});
 
 	if (loading) {
@@ -35,29 +57,68 @@ const Services = () => {
 	}
 
 	return (
-		<Flex direction="column">
+		<Flex direction="column" p="1rem">
 
-			Services page
+			<Heading>	ประเภทงาน	</Heading>
 
-			<Link to="/serviceadd" >
-				<Button colorScheme="purple" m="1rem" >
-					<HStack>
-						<AddIcon fontSize="lg" />
-						<Text>
-							เพิ่ม
-						</Text>
-					</HStack>
-				</Button>
-			</Link>
+			<Flex direction="row" justify="space-between" mt="1rem" mb="1rem">
+				<Mysearch search={search} setSearch={setSearch} searchByName={searchByName} loading={sq.loading}></Mysearch>
 
-			<Text>{dm.loading ? ' deleting' : ' xx '}</Text>
+				<HStack spacing="1rem" justifyContent="flex-end" mb="1rem">
+					<Text>{dm.loading ? ' deleting' : '  '}</Text>
+					{services.some((o: any) => o.selected === true) &&
+						<Button rounded="none" colorScheme="red" size="sm" onClick={async () => {
+							const removeItems = services.filter((s: any) => {
+								return s.selected === true;
+							});
+							const removeIds = removeItems.map((t: any) => t.id);
+							// remove from state						
+							setServices((prev: any) => {
+								return prev.filter((s: any) => {
+									return removeIds.indexOf(s.id) === -1;
+								})
+							});
+							// TODO: remove graphql with multiple id						
+							try {
+								removeIds.forEach(async (item: any) => {
+									await deleteServiceMutation({ variables: { id: item } })
+								});
+							} catch (error) {
+								console.log(error)
+							}
+						}} >
+							<HStack>
+								<DeleteIcon />
+								<Text>
+									ลบ
+								</Text>
+							</HStack>
+						</Button>
+					}
+					<Link to="/serviceadd" >
+						<Button rounded="none" colorScheme="purple" size="sm" >
+							<HStack>
+								<AddIcon />
+								<Text>
+									เพิ่ม
+								</Text>
+							</HStack>
+						</Button>
+					</Link>
 
-			{/* table */}
-			<table style={{ margin: '1rem' }}>
+				</HStack>
+			</Flex>
+			<table  >
 				<thead>
 					<tr>
 						<th>
-							<Checkbox size="lg" colorScheme="green" defaultIsChecked />
+							<Checkbox size="lg" colorScheme="green" onChange={(e) => {
+								setServices((prev: any) => {
+									return prev.map((p: any) => {
+										return { ...p, selected: e.target.checked }
+									});
+								});
+							}} />
 						</th>
 						<th>ระหัส</th>
 						<th>ชื่องาน</th>
@@ -68,7 +129,7 @@ const Services = () => {
 					{services.map((s: any, index: number) => {
 						return (
 							<tr key={index}>
-								<td>
+								<td style={{ textAlign: 'center', }}>
 									<Checkbox size="lg"
 										// value={s.id} 
 										isChecked={s.selected ? true : false}
@@ -91,7 +152,6 @@ const Services = () => {
 										}}
 										colorScheme="gray"
 									/>
-
 								</td>
 								<td>
 									{s.id}

@@ -46,6 +46,13 @@ function AppHeader() {
 						<li className={styles.box}>
 							<Link to="/serviceadd" >เพิ่มประเภทงาน</Link>
 						</li>
+
+						<li className={styles.box}>
+							<Link to="/products" >สินค้า</Link>
+						</li>
+						<li className={styles.box}>
+							<Link to="/product" >เพิ่มสินค้าใหม่</Link>
+						</li>
 					</ul>
 				</div>
 

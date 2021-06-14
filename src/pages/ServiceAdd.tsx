@@ -1,4 +1,4 @@
-import { Button, FormControl, FormLabel, HStack, Input, Textarea, Text, Box } from '@chakra-ui/react';
+import { Button, FormControl, FormLabel, HStack, Input, Textarea, Text, Box, Flex, Heading } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useCreateServiceMutation, useGetServiceQuery, useUpdateServiceMutation } from '../types/graphql.v1';
@@ -14,18 +14,19 @@ const Service = (props: any) => {
 	const [create, crt] = useCreateServiceMutation()
 
 	useEffect(() => {
+		debugger;
+		console.log('useEffect again');
 		textInput.current?.focus();
-		console.log('do focus textbox')
 	}, [])
 
 	return (
-		<div>
-			Add new Service
+		<Flex p="1rem" direction="column">
+			<Heading>เพิ่มประเภทงาน</Heading>
 
 			<Box w="500px" p="1rem" m="1rem">
 
-				<HStack>
-					<Button size="sm" colorScheme="teal" onClick={async (e) => {
+				<HStack justifyContent="flex-end">
+					<Button rounded="none" size="sm" colorScheme="teal" onClick={async (e) => {
 						e.preventDefault();
 						await create({
 							variables: { service: { name: service.name, desc: service.desc } }
@@ -57,7 +58,7 @@ const Service = (props: any) => {
 					/>
 				</FormControl>
 			</Box>
-		</div>
+		</Flex>
 	);
 }
 export default Service

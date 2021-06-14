@@ -1437,10 +1437,10 @@ export type CreateTeamMutation = (
   )> }
 );
 
-export type GatServicesQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetServicesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GatServicesQuery = (
+export type GetServicesQuery = (
   { __typename?: 'Query' }
   & { services?: Maybe<Array<Maybe<(
     { __typename?: 'Service' }
@@ -1459,6 +1459,19 @@ export type GetServiceQuery = (
     { __typename?: 'Service' }
     & Pick<Service, 'id' | 'name' | 'desc' | 'updatedAt'>
   )> }
+);
+
+export type SearchByNameQueryVariables = Exact<{
+  name_contains: Scalars['String'];
+}>;
+
+
+export type SearchByNameQuery = (
+  { __typename?: 'Query' }
+  & { services?: Maybe<Array<Maybe<(
+    { __typename?: 'Service' }
+    & Pick<Service, 'id' | 'name' | 'desc' | 'updatedAt'>
+  )>>> }
 );
 
 export type GetTeamsQueryVariables = Exact<{ [key: string]: never; }>;
@@ -1678,8 +1691,8 @@ export function useCreateTeamMutation(baseOptions?: Apollo.MutationHookOptions<C
 export type CreateTeamMutationHookResult = ReturnType<typeof useCreateTeamMutation>;
 export type CreateTeamMutationResult = Apollo.MutationResult<CreateTeamMutation>;
 export type CreateTeamMutationOptions = Apollo.BaseMutationOptions<CreateTeamMutation, CreateTeamMutationVariables>;
-export const GatServicesDocument = gql`
-    query GatServices {
+export const GetServicesDocument = gql`
+    query GetServices {
   services {
     id
     name
@@ -1688,31 +1701,31 @@ export const GatServicesDocument = gql`
     `;
 
 /**
- * __useGatServicesQuery__
+ * __useGetServicesQuery__
  *
- * To run a query within a React component, call `useGatServicesQuery` and pass it any options that fit your needs.
- * When your component renders, `useGatServicesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useGetServicesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetServicesQuery` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
  * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGatServicesQuery({
+ * const { data, loading, error } = useGetServicesQuery({
  *   variables: {
  *   },
  * });
  */
-export function useGatServicesQuery(baseOptions?: Apollo.QueryHookOptions<GatServicesQuery, GatServicesQueryVariables>) {
+export function useGetServicesQuery(baseOptions?: Apollo.QueryHookOptions<GetServicesQuery, GetServicesQueryVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GatServicesQuery, GatServicesQueryVariables>(GatServicesDocument, options);
+        return Apollo.useQuery<GetServicesQuery, GetServicesQueryVariables>(GetServicesDocument, options);
       }
-export function useGatServicesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GatServicesQuery, GatServicesQueryVariables>) {
+export function useGetServicesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetServicesQuery, GetServicesQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GatServicesQuery, GatServicesQueryVariables>(GatServicesDocument, options);
+          return Apollo.useLazyQuery<GetServicesQuery, GetServicesQueryVariables>(GetServicesDocument, options);
         }
-export type GatServicesQueryHookResult = ReturnType<typeof useGatServicesQuery>;
-export type GatServicesLazyQueryHookResult = ReturnType<typeof useGatServicesLazyQuery>;
-export type GatServicesQueryResult = Apollo.QueryResult<GatServicesQuery, GatServicesQueryVariables>;
+export type GetServicesQueryHookResult = ReturnType<typeof useGetServicesQuery>;
+export type GetServicesLazyQueryHookResult = ReturnType<typeof useGetServicesLazyQuery>;
+export type GetServicesQueryResult = Apollo.QueryResult<GetServicesQuery, GetServicesQueryVariables>;
 export const GetServiceDocument = gql`
     query GetService($id: ID!) {
   service(id: $id) {
@@ -1751,6 +1764,44 @@ export function useGetServiceLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions
 export type GetServiceQueryHookResult = ReturnType<typeof useGetServiceQuery>;
 export type GetServiceLazyQueryHookResult = ReturnType<typeof useGetServiceLazyQuery>;
 export type GetServiceQueryResult = Apollo.QueryResult<GetServiceQuery, GetServiceQueryVariables>;
+export const SearchByNameDocument = gql`
+    query SearchByName($name_contains: String!) {
+  services(where: {name_contains: $name_contains}) {
+    id
+    name
+    desc
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useSearchByNameQuery__
+ *
+ * To run a query within a React component, call `useSearchByNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useSearchByNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSearchByNameQuery({
+ *   variables: {
+ *      name_contains: // value for 'name_contains'
+ *   },
+ * });
+ */
+export function useSearchByNameQuery(baseOptions: Apollo.QueryHookOptions<SearchByNameQuery, SearchByNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<SearchByNameQuery, SearchByNameQueryVariables>(SearchByNameDocument, options);
+      }
+export function useSearchByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<SearchByNameQuery, SearchByNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<SearchByNameQuery, SearchByNameQueryVariables>(SearchByNameDocument, options);
+        }
+export type SearchByNameQueryHookResult = ReturnType<typeof useSearchByNameQuery>;
+export type SearchByNameLazyQueryHookResult = ReturnType<typeof useSearchByNameLazyQuery>;
+export type SearchByNameQueryResult = Apollo.QueryResult<SearchByNameQuery, SearchByNameQueryVariables>;
 export const GetTeamsDocument = gql`
     query GetTeams {
   teams {
