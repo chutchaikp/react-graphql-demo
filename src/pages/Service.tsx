@@ -1,7 +1,7 @@
 import { Button, FormControl, FormLabel, HStack, Input, Textarea, Text, Box, Flex, Heading } from '@chakra-ui/react';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useDeleteServiceMutation, useGetServiceQuery, useUpdateServiceMutation } from '../types/graphql.v1';
+import { useDeleteServiceMutation, useGetServiceQuery, useGetServicesLazyQuery, useUpdateServiceMutation } from '../types/graphql.v1';
 
 const Service = (props: any) => {
 	const history = useHistory();
@@ -11,7 +11,9 @@ const Service = (props: any) => {
 	// add new page for add ? or use this page ?
 	// ?
 
-
+	// how useEffect work ?
+	// call in useEffect ?
+	// useGetServicesLazyQuery
 
 	const { loading, error } = useGetServiceQuery({
 		onCompleted: (data) => {

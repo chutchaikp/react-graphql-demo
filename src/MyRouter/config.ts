@@ -30,7 +30,7 @@ export const Routes = [
 	},
 	{
 		path: ["/todo2", "todo2"],
-		component: "AppTodo"
+		component: "Todo2"
 	},
 	{
 		path: ["/services", "services"],
@@ -56,6 +56,10 @@ export const Routes = [
 	{
 		path: ["/productadd/", "productadd"],
 		component: "ProductAdd"
+	},
+	{
+		path: ["/uploadimage/", "uploadimage"],
+		component: "UploadImageContainer"
 	},
 
 
