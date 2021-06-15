@@ -1,5 +1,6 @@
 export type UploadImageType = {
 	photoId: number;
 	fileName: string;
-	progress: number;
+	percent?: number; // percent uploading
+	url?: string;
 };

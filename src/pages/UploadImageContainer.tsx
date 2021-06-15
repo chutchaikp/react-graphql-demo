@@ -6,7 +6,20 @@ import { UploadImageType } from '../common/UploadImageType';
 
 const UploadImageContainer: React.FC = (props) => {
 
-	const [uploads, setUploads] = useState<UploadImageType[]>([])
+	// photoId: number;
+	// fileName: string;
+	// percent?: number; // percent uploading
+	// url?: string;
+
+
+	const [uploads, setUploads] = useState<UploadImageType[]>([
+		{
+			photoId: 0,
+			fileName: "Image001.png",
+			percent: 50,
+			// url: 'https://res.cloudinary.com/dexoyyxyg/image/upload/v1622249946/Screen_Shot_2564-05-11_at_03.48.52_rpidjx.png',
+		},
+	])
 
 	return (
 		<Flex direction="column" >
@@ -19,28 +32,27 @@ const UploadImageContainer: React.FC = (props) => {
 
 				// Add new or update exist
 				setUploads((prev: UploadImageType[]) => {
-					debugger;
 					if (prev.some((p) => p.photoId === photoId)) {
-						// update exist with new progress
-						debugger;
+						// update exist with new progress						
 						const newUpload = prev.map((u) => {
 							if (u.photoId === photoId) {
-								return { ...u, progress: progress || 0 }
+								return { ...u, percent: progress || 100 }
 							}
 							return { ...u };
 						});
 						return newUpload;
 					} else {
 						// add new
-						return [...prev, { photoId, fileName, progress }]
+						return [...prev, { photoId, fileName, percent: progress }]
 					}
 				});
 			}} onUploaded={(photoId, fileName, response) => {
 				// 100% uploaded
+				debugger;
 				setUploads((prev: UploadImageType[]) => {
 					const newUpload = prev.map((u) => {
 						if (u.photoId === photoId) {
-							return { ...u, progress: 100 }
+							return { ...u, percent: 100, url: response.body.url || "" }
 						}
 						return { ...u };
 					});

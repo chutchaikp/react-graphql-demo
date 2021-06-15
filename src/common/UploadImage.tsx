@@ -14,8 +14,6 @@ interface UploadImageProps {
 const UploadImage: React.FC<UploadImageProps> = ({ photoId, onProgress, onUploaded }) => {
 
 	const upload = (files: any) => {
-		debugger;
-
 		try {
 			const url = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/upload`;
 
@@ -28,7 +26,7 @@ const UploadImage: React.FC<UploadImageProps> = ({ photoId, onProgress, onUpload
 					// .field('tags', title ? `myphotoalbum,${title}` : 'myphotoalbum')
 					// .field('context', title ? `photo=${title}` : '')
 					.on('progress', (progress: any) => {
-						onProgress(photoId, file.name, progress.percent);
+						onProgress(photoId, file.name, Math.floor(progress.percent));
 					})
 					.end((error, response) => {
 						onUploaded(photoId, fileName, response)

@@ -60,12 +60,13 @@ button,input,select,textarea {
 	line-height: inherit
 }
 
-a {
-	color: #0a84ae;
-	text-decoration: none;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale
-}
+// a {
+// 	color: #0a84ae;
+// 	text-decoration: none;
+// 	-webkit-font-smoothing: antialiased;
+// 	-moz-osx-font-smoothing: grayscale
+// }
+
 .h1,.h2,.h3,.h4,.h5,.h6,
 	h1,h2,h3,h4,h5,h6 {
 	font-family: inherit;
@@ -180,4 +181,27 @@ td {
 	border-collapse: collapse;
 	border-top: 1px solid rgb(241, 241, 242) !important;
 	padding: 0px 25px;
+}
+
+.progressBar{
+	width: 100px;
+	position: relative;
+	height: 4px;
+
+	.progress{
+		height: 4px;
+		background-color: #ff0000;
+		width: 0;
+	}
+}
+
+// .progressBar .progress{
+// 	height: 4px;
+// 	background-color: #ff0000;
+// 	width: 0;
+// }
+
+.preview img {
+	max-width: 300px;
+	max-height: 150px;
 }
