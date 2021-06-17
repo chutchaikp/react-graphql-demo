@@ -3,6 +3,22 @@
 // delete image
 // add menu web mobile
 // 
+// https://stackoverflow.com/questions/13630229/can-i-have-an-onclick-effect-in-css
+
+// stack overflow menu ?
+
+// .left-sidebar-toggle.topbar-icon-on span {
+// 	background-color: transparent
+// }
+
+// .left-sidebar-toggle.topbar-icon-on span:before,.left-sidebar-toggle.topbar-icon-on span:after {
+// 	top: 0;
+// 	transform: rotate(-45deg)
+// }
+
+// .left-sidebar-toggle.topbar-icon-on span:after {
+// 	transform: rotate(45deg)
+// }
 
 
 
@@ -32,7 +48,7 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 			<div>
 				{uploadsRev && uploadsRev.map((t: UploadImageType) => {
 					return (
-						<div style={{ margin: "1rem" }}>
+						<div key={t.photoId} style={{ margin: "1rem" }}>
 							<div>
 								<img onClick={(e: any) => {
 									if (e.target.width === 200) {

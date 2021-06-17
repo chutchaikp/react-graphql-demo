@@ -1,6 +1,6 @@
 export const Routes = [
 	{
-		path: ["/", "home"],
+		path: ["/", "menu"],
 		exact: true,
 		component: "App",
 	},
@@ -60,6 +60,10 @@ export const Routes = [
 	{
 		path: ["/uploadimage/", "uploadimage"],
 		component: "UploadImageContainer"
+	},
+	{
+		path: ["/menu/", "menu"],
+		component: "Menu"
 	},
 
 
