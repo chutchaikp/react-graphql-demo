@@ -1,3 +1,4 @@
+import { Flex } from '@chakra-ui/react'
 import React, { lazy, Suspense } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Header from '../common/AppHeader'
@@ -5,20 +6,26 @@ import { Routes } from './config'
 
 function index() {
 	return (
-		<div>
+		<Flex justify="center">
 			<Suspense fallback={null}>
-				<Header />
-				<Switch>
-					{Routes.map((ritm) => {
-						return (
-							<Route key={ritm.component} path={ritm.path} exact={ritm.exact}
-								component={lazy(() => import(`../pages/${ritm.component}`))}
-							/>
-						);
-					})}
-				</Switch>
+
+				<Flex direction="column"
+					minW="375px"
+					maxW="555px">
+					<Header />
+					<Switch>
+						{Routes.map((ritm) => {
+							return (
+								<Route key={ritm.component} path={ritm.path} exact={ritm.exact}
+									component={lazy(() => import(`../pages/${ritm.component}`))}
+								/>
+							);
+						})}
+					</Switch>
+				</Flex>
+
 			</Suspense>
-		</div>
+		</Flex>
 	)
 }
 

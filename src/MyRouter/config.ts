@@ -2,7 +2,7 @@ export const Routes = [
 	{
 		path: ["/", "menu"],
 		exact: true,
-		component: "App",
+		component: "ProductTypes",
 	},
 	// {
 	// 	path: ["/home", "home"],
@@ -57,6 +57,22 @@ export const Routes = [
 		path: ["/productadd/", "productadd"],
 		component: "ProductAdd"
 	},
+
+	{
+		path: ["/producttypes", "producttypes"],
+		component: "ProductTypes"
+	},
+	{
+		path: ["/producttypepage/:id", "producttypepage"],
+		component: "ProductTypePage"
+	},
+	{
+		path: ["/producttypeadd/", "producttypeadd"],
+		component: "ProductTypeAdd"
+	},
+
+
+
 	{
 		path: ["/uploadimage/", "uploadimage"],
 		component: "UploadImageContainer"

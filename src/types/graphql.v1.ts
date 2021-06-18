@@ -85,10 +85,13 @@ export type LocaleInput = {
 };
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnection_Id | ServiceConnectionCreatedAt | ServiceConnectionUpdatedAt | ServiceConnectionName | ServiceConnectionDesc | ServiceConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | Team | TeamConnection | TeamAggregator | TeamGroupBy | TeamConnectionId | TeamConnection_Id | TeamConnectionCreatedAt | TeamConnectionUpdatedAt | TeamConnectionName | TeamConnectionCountry | TeamConnectionPublished_At | CreateTeamPayload | UpdateTeamPayload | DeleteTeamPayload | Todo | TodoConnection | TodoAggregator | TodoGroupBy | TodoConnectionId | TodoConnection_Id | TodoConnectionCreatedAt | TodoConnectionUpdatedAt | TodoConnectionTitle | TodoConnectionFinished | TodoConnectionPublished_At | CreateTodoPayload | UpdateTodoPayload | DeleteTodoPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnection_Id | ProductTypeConnectionCreatedAt | ProductTypeConnectionUpdatedAt | ProductTypeConnectionName | ProductTypeConnectionCode | ProductTypeConnectionPublished_At | CreateProductTypePayload | UpdateProductTypePayload | DeleteProductTypePayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnection_Id | ServiceConnectionCreatedAt | ServiceConnectionUpdatedAt | ServiceConnectionName | ServiceConnectionDesc | ServiceConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | Team | TeamConnection | TeamAggregator | TeamGroupBy | TeamConnectionId | TeamConnection_Id | TeamConnectionCreatedAt | TeamConnectionUpdatedAt | TeamConnectionName | TeamConnectionCountry | TeamConnectionPublished_At | CreateTeamPayload | UpdateTeamPayload | DeleteTeamPayload | Todo | TodoConnection | TodoAggregator | TodoGroupBy | TodoConnectionId | TodoConnection_Id | TodoConnectionCreatedAt | TodoConnectionUpdatedAt | TodoConnectionTitle | TodoConnectionFinished | TodoConnectionPublished_At | CreateTodoPayload | UpdateTodoPayload | DeleteTodoPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createProductType?: Maybe<CreateProductTypePayload>;
+  updateProductType?: Maybe<UpdateProductTypePayload>;
+  deleteProductType?: Maybe<DeleteProductTypePayload>;
   createService?: Maybe<CreateServicePayload>;
   updateService?: Maybe<UpdateServicePayload>;
   deleteService?: Maybe<DeleteServicePayload>;
@@ -120,6 +123,21 @@ export type Mutation = {
   forgotPassword?: Maybe<UserPermissionsPasswordPayload>;
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   emailConfirmation?: Maybe<UsersPermissionsLoginPayload>;
+};
+
+
+export type MutationCreateProductTypeArgs = {
+  input?: Maybe<CreateProductTypeInput>;
+};
+
+
+export type MutationUpdateProductTypeArgs = {
+  input?: Maybe<UpdateProductTypeInput>;
+};
+
+
+export type MutationDeleteProductTypeArgs = {
+  input?: Maybe<DeleteProductTypeInput>;
 };
 
 
@@ -254,6 +272,91 @@ export type MutationEmailConfirmationArgs = {
   confirmation: Scalars['String'];
 };
 
+export type ProductType = {
+  __typename?: 'ProductType';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  name?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+};
+
+export type ProductTypeAggregator = {
+  __typename?: 'ProductTypeAggregator';
+  count?: Maybe<Scalars['Int']>;
+  totalCount?: Maybe<Scalars['Int']>;
+};
+
+export type ProductTypeConnection = {
+  __typename?: 'ProductTypeConnection';
+  values?: Maybe<Array<Maybe<ProductType>>>;
+  groupBy?: Maybe<ProductTypeGroupBy>;
+  aggregate?: Maybe<ProductTypeAggregator>;
+};
+
+export type ProductTypeConnectionCode = {
+  __typename?: 'ProductTypeConnectionCode';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductTypeConnection>;
+};
+
+export type ProductTypeConnectionCreatedAt = {
+  __typename?: 'ProductTypeConnectionCreatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ProductTypeConnection>;
+};
+
+export type ProductTypeConnectionId = {
+  __typename?: 'ProductTypeConnectionId';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ProductTypeConnection>;
+};
+
+export type ProductTypeConnectionName = {
+  __typename?: 'ProductTypeConnectionName';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductTypeConnection>;
+};
+
+export type ProductTypeConnectionPublished_At = {
+  __typename?: 'ProductTypeConnectionPublished_at';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ProductTypeConnection>;
+};
+
+export type ProductTypeConnectionUpdatedAt = {
+  __typename?: 'ProductTypeConnectionUpdatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ProductTypeConnection>;
+};
+
+export type ProductTypeConnection_Id = {
+  __typename?: 'ProductTypeConnection_id';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ProductTypeConnection>;
+};
+
+export type ProductTypeGroupBy = {
+  __typename?: 'ProductTypeGroupBy';
+  id?: Maybe<Array<Maybe<ProductTypeConnectionId>>>;
+  _id?: Maybe<Array<Maybe<ProductTypeConnection_Id>>>;
+  createdAt?: Maybe<Array<Maybe<ProductTypeConnectionCreatedAt>>>;
+  updatedAt?: Maybe<Array<Maybe<ProductTypeConnectionUpdatedAt>>>;
+  name?: Maybe<Array<Maybe<ProductTypeConnectionName>>>;
+  code?: Maybe<Array<Maybe<ProductTypeConnectionCode>>>;
+  published_at?: Maybe<Array<Maybe<ProductTypeConnectionPublished_At>>>;
+};
+
+export type ProductTypeInput = {
+  name?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export enum PublicationState {
   Live = 'LIVE',
   Preview = 'PREVIEW'
@@ -261,6 +364,9 @@ export enum PublicationState {
 
 export type Query = {
   __typename?: 'Query';
+  productType?: Maybe<ProductType>;
+  productTypes?: Maybe<Array<Maybe<ProductType>>>;
+  productTypesConnection?: Maybe<ProductTypeConnection>;
   service?: Maybe<Service>;
   services?: Maybe<Array<Maybe<Service>>>;
   servicesConnection?: Maybe<ServiceConnection>;
@@ -280,6 +386,29 @@ export type Query = {
   users?: Maybe<Array<Maybe<UsersPermissionsUser>>>;
   usersConnection?: Maybe<UsersPermissionsUserConnection>;
   me?: Maybe<UsersPermissionsMe>;
+};
+
+
+export type QueryProductTypeArgs = {
+  id: Scalars['ID'];
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryProductTypesArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryProductTypesConnectionArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
 };
 
 
@@ -1134,6 +1263,15 @@ export type UsersPermissionsUserGroupBy = {
   role?: Maybe<Array<Maybe<UsersPermissionsUserConnectionRole>>>;
 };
 
+export type CreateProductTypeInput = {
+  data?: Maybe<ProductTypeInput>;
+};
+
+export type CreateProductTypePayload = {
+  __typename?: 'createProductTypePayload';
+  productType?: Maybe<ProductType>;
+};
+
 export type CreateRoleInput = {
   data?: Maybe<RoleInput>;
 };
@@ -1186,6 +1324,15 @@ export type DeleteFileInput = {
 export type DeleteFilePayload = {
   __typename?: 'deleteFilePayload';
   file?: Maybe<UploadFile>;
+};
+
+export type DeleteProductTypeInput = {
+  where?: Maybe<InputId>;
+};
+
+export type DeleteProductTypePayload = {
+  __typename?: 'deleteProductTypePayload';
+  productType?: Maybe<ProductType>;
 };
 
 export type DeleteRoleInput = {
@@ -1260,6 +1407,14 @@ export type EditLocaleInput = {
   updated_by?: Maybe<Scalars['ID']>;
 };
 
+export type EditProductTypeInput = {
+  name?: Maybe<Scalars['String']>;
+  code?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export type EditRoleInput = {
   name?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
@@ -1306,6 +1461,16 @@ export type EditUserInput = {
   role?: Maybe<Scalars['ID']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
+};
+
+export type UpdateProductTypeInput = {
+  where?: Maybe<InputId>;
+  data?: Maybe<EditProductTypeInput>;
+};
+
+export type UpdateProductTypePayload = {
+  __typename?: 'updateProductTypePayload';
+  productType?: Maybe<ProductType>;
 };
 
 export type UpdateRoleInput = {
@@ -1471,6 +1636,17 @@ export type SearchByNameQuery = (
   & { services?: Maybe<Array<Maybe<(
     { __typename?: 'Service' }
     & Pick<Service, 'id' | 'name' | 'desc' | 'updatedAt'>
+  )>>> }
+);
+
+export type GetProductTypesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProductTypesQuery = (
+  { __typename?: 'Query' }
+  & { productTypes?: Maybe<Array<Maybe<(
+    { __typename?: 'ProductType' }
+    & Pick<ProductType, 'id' | 'name' | 'code' | 'updatedAt'>
   )>>> }
 );
 
@@ -1802,6 +1978,43 @@ export function useSearchByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptio
 export type SearchByNameQueryHookResult = ReturnType<typeof useSearchByNameQuery>;
 export type SearchByNameLazyQueryHookResult = ReturnType<typeof useSearchByNameLazyQuery>;
 export type SearchByNameQueryResult = Apollo.QueryResult<SearchByNameQuery, SearchByNameQueryVariables>;
+export const GetProductTypesDocument = gql`
+    query GetProductTypes {
+  productTypes {
+    id
+    name
+    code
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useGetProductTypesQuery__
+ *
+ * To run a query within a React component, call `useGetProductTypesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductTypesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductTypesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetProductTypesQuery(baseOptions?: Apollo.QueryHookOptions<GetProductTypesQuery, GetProductTypesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductTypesQuery, GetProductTypesQueryVariables>(GetProductTypesDocument, options);
+      }
+export function useGetProductTypesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductTypesQuery, GetProductTypesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProductTypesQuery, GetProductTypesQueryVariables>(GetProductTypesDocument, options);
+        }
+export type GetProductTypesQueryHookResult = ReturnType<typeof useGetProductTypesQuery>;
+export type GetProductTypesLazyQueryHookResult = ReturnType<typeof useGetProductTypesLazyQuery>;
+export type GetProductTypesQueryResult = Apollo.QueryResult<GetProductTypesQuery, GetProductTypesQueryVariables>;
 export const GetTeamsDocument = gql`
     query GetTeams {
   teams {

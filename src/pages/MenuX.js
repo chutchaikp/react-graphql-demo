@@ -16,7 +16,7 @@ function MenuX() {
 			color="white" p="1rem"
 			direction="column" w="100%"
 		>
-			<Heading >งานลูกค้า</Heading>
+			<Heading >ระบบบริหารร้านค้า</Heading>
 			<div>
 				{/* <Button colorScheme="purple" size="xs" onClick={() => setOpen(!open)}>change</Button> */}
 				<input checked={open} onChange={() => setOpen(!open)} type="checkbox" id="btrEyd" className="btrEyd" />
@@ -54,6 +54,8 @@ function MenuX() {
 								<Link onClick={onClickLink} to="/" >Home</Link>
 								<Link onClick={onClickLink} to="/uploadimage" >Upload images</Link>
 								<Link onClick={onClickLink} to="/menu" >Menu</Link>
+								<Link onClick={onClickLink} to="/producttypes" >ประเภทสินค้า</Link>
+								<Link onClick={onClickLink} to="/producttype" >เพิ่มประเภทสินค้า</Link>
 							</SimpleGrid>
 
 						</VStack>

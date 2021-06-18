@@ -29,3 +29,14 @@ query SearchByName($name_contains: String!) {
     updatedAt
   }
 }
+
+# Query Product Types
+
+query GetProductTypes {
+  productTypes {
+    id
+    name
+    code
+    updatedAt
+  }
+}
