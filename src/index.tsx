@@ -6,7 +6,7 @@ import MyRouter from './MyRouter';
 import { BrowserRouter } from 'react-router-dom';
 // import { getTokens } from './common/TokenMan';
 // import { Auth0Provider } from '@auth0/auth0-react'
-import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
+import { ChakraProvider, ColorModeScript, extendTheme, } from "@chakra-ui/react"
 import theme from "./theme"
 require('dotenv').config()
 
@@ -56,8 +56,8 @@ ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
       <ApolloProvider client={client}>
-        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <ChakraProvider>
+        <ChakraProvider theme={theme}>
+          {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
           <MyRouter />
         </ChakraProvider>
       </ApolloProvider>

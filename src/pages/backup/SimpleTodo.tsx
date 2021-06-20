@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 // import styles from '../App.module.cs'
-import styles from '../App.module.css'
+import styles from '../../App.module.css'
 
 const SimpleTodo = () => {
 

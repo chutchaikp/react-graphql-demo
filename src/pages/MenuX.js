@@ -32,30 +32,32 @@ function MenuX() {
 
 							<SimpleGrid columns={2} spacing="7px" alignSelf="stretch">
 								<Link onClick={onClickLink} to="/" >Home</Link>
-								<Link onClick={onClickLink} to="/hook">Hook</Link>
+								{/* <Link onClick={onClickLink} to="/hook">Hook</Link>
 								<Link onClick={onClickLink} to="/lazyhook">Lazy hook</Link>
 								<Link onClick={onClickLink} to="/lazyhook2">Lazy hook 2</Link>
 								<Link onClick={onClickLink} to="/lazyhook3">Lazy hook 3</Link>
 								<Link onClick={onClickLink} to="/todo">Todo</Link>
 								<Link onClick={onClickLink} to="/todo2">Todo2</Link>
-								<Link onClick={onClickLink} to="/lazyhook2">Upvote</Link>
-								<Link onClick={onClickLink} to="/login">JWT</Link>
+								<Link onClick={onClickLink} to="/login">JWT</Link> */}
+								<Link onClick={onClickLink} to="/uploadimage" >Upload images</Link>
+
 							</SimpleGrid>
 
-							<SimpleGrid columns={2} spacing="7px" alignSelf="stretch" >
+							{/* <SimpleGrid columns={2} spacing="7px" alignSelf="stretch" >
 								<Link onClick={onClickLink} to="/services" >ประเภทงาน</Link>
 								<Link onClick={onClickLink} to="/serviceadd" >เพิ่มประเภทงาน</Link>
 								<Link onClick={onClickLink} to="/products" >สินค้า</Link>
 								<Link onClick={onClickLink} to="/product" >เพิ่มสินค้าใหม่</Link>
 								<Link onClick={onClickLink} to="/uploadimage" >Upload images</Link>
-							</SimpleGrid>
+							</SimpleGrid> */}
 
 							<SimpleGrid columns={2} spacing="7px" alignSelf="stretch" >
-								<Link onClick={onClickLink} to="/" >Home</Link>
-								<Link onClick={onClickLink} to="/uploadimage" >Upload images</Link>
-								<Link onClick={onClickLink} to="/menu" >Menu</Link>
+								<Link onClick={onClickLink} to="/products" >สินค้า</Link>
+								{/* <Link onClick={onClickLink} to="/" >Home</Link> */}
+								{/* <Link onClick={onClickLink} to="/menu" >Menu</Link> */}
+								<Link onClick={onClickLink} to="/services-page" >ประเภทงาน</Link>
 								<Link onClick={onClickLink} to="/producttypes" >ประเภทสินค้า</Link>
-								<Link onClick={onClickLink} to="/producttype" >เพิ่มประเภทสินค้า</Link>
+
 							</SimpleGrid>
 
 						</VStack>

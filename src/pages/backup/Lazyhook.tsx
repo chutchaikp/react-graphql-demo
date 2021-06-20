@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import { TeamInput, useCreateTeamMutation, useGetTeamsLazyQuery, useGetTodosLazyQuery } from '../types/graphql.v1';
+import { TeamInput, useCreateTeamMutation, useGetTeamsLazyQuery, useGetTodosLazyQuery } from '../../types/graphql.v1';
 
 const Lazyhook: React.FC = () => {
 

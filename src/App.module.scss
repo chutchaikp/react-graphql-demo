@@ -128,17 +128,16 @@ p {
   min-height: 50vh;	
 }
 
-form {
-	width: 300px;	
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	// each child
- 	* {
-		margin: 0.35rem;
-	}
-}
+// form {
+// 	width: 300px;	
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: space-between;
+// 	// each child
+//  	* {
+// 		margin: 0.35rem;
+// 	}
+// }
 
 .todo{	
 	

@@ -43,3 +43,28 @@ mutation DeleteService($id: ID!) {
     }
   }
 }
+
+# Product Type --------------------------------------------------------
+mutation CreateProductType($pt: ProductTypeInput) {
+  createProductType(input: { data: $pt }) {
+    productType {
+      id
+    }
+  }
+}
+
+mutation UpdateProductType($id: ID!, $productType: editProductTypeInput) {
+  updateProductType(input: { data: $productType, where: { id: $id } }) {
+    productType {
+      id
+    }
+  }
+}
+mutation DeleteProductType($id: ID!) {
+  deleteProductType(input: { where: { id: $id } }) {
+    productType {
+      id
+      name
+    }
+  }
+}

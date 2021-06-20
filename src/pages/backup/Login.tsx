@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import styles from '../App.module.css'
-import { saveTokens } from '../common/TokenMan'
-import { useAppLoginMutation } from '../types/graphql.v1'
+import styles from '../../App.module.css'
+import { saveTokens } from '../../common/TokenMan'
+import { useAppLoginMutation } from '../../types/graphql.v1'
 
 // learn more
 // https://github.com/strapi/strapi-examples/tree/master/login-react

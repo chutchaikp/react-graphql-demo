@@ -2,6 +2,7 @@ query GetServices {
   services {
     id
     name
+    updatedAt
   }
 }
 
@@ -34,6 +35,15 @@ query SearchByName($name_contains: String!) {
 
 query GetProductTypes {
   productTypes {
+    id
+    name
+    code
+    updatedAt
+  }
+}
+
+query GetProductType($id: ID!) {
+  productType(id: $id) {
     id
     name
     code

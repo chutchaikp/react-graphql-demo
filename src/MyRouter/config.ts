@@ -2,47 +2,47 @@ export const Routes = [
 	{
 		path: ["/", "menu"],
 		exact: true,
-		component: "ProductTypes",
+		component: "ServicesPage", // "ProductTypes",
 	},
 	// {
 	// 	path: ["/home", "home"],
 	// 	component: "Home"
 	// },
+	// {
+	// 	path: ["/hook", "hook"],
+	// 	component: "App"
+	// },
+	// {
+	// 	path: ["/lazyhook", "lazyhook"],
+	// 	component: "Lazyhook"
+	// },
+	// {
+	// 	path: ["/lazyhook2", "lazyhook2"],
+	// 	component: "Lazyhook2"
+	// },
+	// {
+	// 	path: ["/lazyhook3", "lazyhook3"],
+	// 	component: "Lazyhook3"
+	// },
+	// {
+	// 	path: ["/todo", "todo"],
+	// 	component: "SimpleTodo"
+	// },
+	// {
+	// 	path: ["/todo2", "todo2"],
+	// 	component: "Todo2"
+	// },
 	{
-		path: ["/hook", "hook"],
-		component: "App"
+		path: ["/services-page", "services"],
+		component: "ServicesPage"
 	},
 	{
-		path: ["/lazyhook", "lazyhook"],
-		component: "Lazyhook"
+		path: ["/service-page/:id", "service"],
+		component: "ServicePage"
 	},
 	{
-		path: ["/lazyhook2", "lazyhook2"],
-		component: "Lazyhook2"
-	},
-	{
-		path: ["/lazyhook3", "lazyhook3"],
-		component: "Lazyhook3"
-	},
-	{
-		path: ["/todo", "todo"],
-		component: "SimpleTodo"
-	},
-	{
-		path: ["/todo2", "todo2"],
-		component: "Todo2"
-	},
-	{
-		path: ["/services", "services"],
-		component: "Services"
-	},
-	{
-		path: ["/service/:id", "service"],
-		component: "Service"
-	},
-	{
-		path: ["/serviceadd/", "serviceadd"],
-		component: "ServiceAdd"
+		path: ["/service-add-page/", "serviceadd"],
+		component: "ServiceAddPage"
 	},
 
 	{
@@ -58,17 +58,19 @@ export const Routes = [
 		component: "ProductAdd"
 	},
 
+
+
 	{
 		path: ["/producttypes", "producttypes"],
-		component: "ProductTypes"
+		component: "ProductTypesPage"
 	},
 	{
 		path: ["/producttypepage/:id", "producttypepage"],
 		component: "ProductTypePage"
 	},
 	{
-		path: ["/producttypeadd/", "producttypeadd"],
-		component: "ProductTypeAdd"
+		path: ["/product-type-add-page", "producttypeadd"],
+		component: "ProductTypeAddPage"
 	},
 
 
