@@ -2,7 +2,7 @@ export const Routes = [
 	{
 		path: ["/", "menu"],
 		exact: true,
-		component: "ServicesPage", // "ProductTypes",
+		component: "ProductsPage", // "ProductTypes",
 	},
 	// {
 	// 	path: ["/home", "home"],
@@ -45,17 +45,18 @@ export const Routes = [
 		component: "ServiceAddPage"
 	},
 
+	// Product 
 	{
-		path: ["/products", "products"],
-		component: "Products"
+		path: ["/products-page", "products"],
+		component: "ProductsPage"
 	},
 	{
-		path: ["/product/:id", "product"],
-		component: "Product"
+		path: ["/product-page/:id", "product"],
+		component: "ProductPage"
 	},
 	{
-		path: ["/productadd/", "productadd"],
-		component: "ProductAdd"
+		path: ["/product-add-page/", "productadd"],
+		component: "ProductAddPage"
 	},
 
 

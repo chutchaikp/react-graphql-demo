@@ -51,8 +51,8 @@ function MenuX() {
 								<Link onClick={onClickLink} to="/uploadimage" >Upload images</Link>
 							</SimpleGrid> */}
 
-							<SimpleGrid columns={2} spacing="7px" alignSelf="stretch" >
-								<Link onClick={onClickLink} to="/products" >สินค้า</Link>
+							<SimpleGrid columns={2} spacing="10px" alignSelf="stretch" >
+								<Link onClick={onClickLink} to="/products-page" >สินค้า</Link>
 								{/* <Link onClick={onClickLink} to="/" >Home</Link> */}
 								{/* <Link onClick={onClickLink} to="/menu" >Menu</Link> */}
 								<Link onClick={onClickLink} to="/services-page" >ประเภทงาน</Link>
