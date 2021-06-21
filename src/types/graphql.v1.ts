@@ -85,13 +85,16 @@ export type LocaleInput = {
 };
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnection_Id | ProductTypeConnectionCreatedAt | ProductTypeConnectionUpdatedAt | ProductTypeConnectionName | ProductTypeConnectionCode | ProductTypeConnectionPublished_At | CreateProductTypePayload | UpdateProductTypePayload | DeleteProductTypePayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnection_Id | ServiceConnectionCreatedAt | ServiceConnectionUpdatedAt | ServiceConnectionName | ServiceConnectionDesc | ServiceConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | Team | TeamConnection | TeamAggregator | TeamGroupBy | TeamConnectionId | TeamConnection_Id | TeamConnectionCreatedAt | TeamConnectionUpdatedAt | TeamConnectionName | TeamConnectionCountry | TeamConnectionPublished_At | CreateTeamPayload | UpdateTeamPayload | DeleteTeamPayload | Todo | TodoConnection | TodoAggregator | TodoGroupBy | TodoConnectionId | TodoConnection_Id | TodoConnectionCreatedAt | TodoConnectionUpdatedAt | TodoConnectionTitle | TodoConnectionFinished | TodoConnectionPublished_At | CreateTodoPayload | UpdateTodoPayload | DeleteTodoPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnection_Id | ProductTypeConnectionCreatedAt | ProductTypeConnectionUpdatedAt | ProductTypeConnectionName | ProductTypeConnectionCode | ProductTypeConnectionPublished_At | CreateProductTypePayload | UpdateProductTypePayload | DeleteProductTypePayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnection_Id | ProductConnectionCreatedAt | ProductConnectionUpdatedAt | ProductConnectionCode | ProductConnectionProduct_Type | ProductConnectionName | ProductConnectionDetail | ProductConnectionCost_Price | ProductConnectionSale_Price | ProductConnectionRemark | ProductConnectionPicture1 | ProductConnectionPublished_At | CreateProductPayload | UpdateProductPayload | DeleteProductPayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnection_Id | ServiceConnectionCreatedAt | ServiceConnectionUpdatedAt | ServiceConnectionName | ServiceConnectionDesc | ServiceConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | Team | TeamConnection | TeamAggregator | TeamGroupBy | TeamConnectionId | TeamConnection_Id | TeamConnectionCreatedAt | TeamConnectionUpdatedAt | TeamConnectionName | TeamConnectionCountry | TeamConnectionPublished_At | CreateTeamPayload | UpdateTeamPayload | DeleteTeamPayload | Todo | TodoConnection | TodoAggregator | TodoGroupBy | TodoConnectionId | TodoConnection_Id | TodoConnectionCreatedAt | TodoConnectionUpdatedAt | TodoConnectionTitle | TodoConnectionFinished | TodoConnectionPublished_At | CreateTodoPayload | UpdateTodoPayload | DeleteTodoPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
 
 export type Mutation = {
   __typename?: 'Mutation';
   createProductType?: Maybe<CreateProductTypePayload>;
   updateProductType?: Maybe<UpdateProductTypePayload>;
   deleteProductType?: Maybe<DeleteProductTypePayload>;
+  createProduct?: Maybe<CreateProductPayload>;
+  updateProduct?: Maybe<UpdateProductPayload>;
+  deleteProduct?: Maybe<DeleteProductPayload>;
   createService?: Maybe<CreateServicePayload>;
   updateService?: Maybe<UpdateServicePayload>;
   deleteService?: Maybe<DeleteServicePayload>;
@@ -138,6 +141,21 @@ export type MutationUpdateProductTypeArgs = {
 
 export type MutationDeleteProductTypeArgs = {
   input?: Maybe<DeleteProductTypeInput>;
+};
+
+
+export type MutationCreateProductArgs = {
+  input?: Maybe<CreateProductInput>;
+};
+
+
+export type MutationUpdateProductArgs = {
+  input?: Maybe<UpdateProductInput>;
+};
+
+
+export type MutationDeleteProductArgs = {
+  input?: Maybe<DeleteProductInput>;
 };
 
 
@@ -272,6 +290,173 @@ export type MutationEmailConfirmationArgs = {
   confirmation: Scalars['String'];
 };
 
+export type Product = {
+  __typename?: 'Product';
+  id: Scalars['ID'];
+  _id: Scalars['ID'];
+  createdAt: Scalars['DateTime'];
+  updatedAt: Scalars['DateTime'];
+  code?: Maybe<Scalars['String']>;
+  product_type?: Maybe<ProductType>;
+  name?: Maybe<Scalars['String']>;
+  detail?: Maybe<Scalars['String']>;
+  cost_price?: Maybe<Scalars['Int']>;
+  sale_price?: Maybe<Scalars['Int']>;
+  remark?: Maybe<Scalars['String']>;
+  picture1?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+};
+
+export type ProductAggregator = {
+  __typename?: 'ProductAggregator';
+  count?: Maybe<Scalars['Int']>;
+  totalCount?: Maybe<Scalars['Int']>;
+  sum?: Maybe<ProductAggregatorSum>;
+  avg?: Maybe<ProductAggregatorAvg>;
+  min?: Maybe<ProductAggregatorMin>;
+  max?: Maybe<ProductAggregatorMax>;
+};
+
+export type ProductAggregatorAvg = {
+  __typename?: 'ProductAggregatorAvg';
+  cost_price?: Maybe<Scalars['Float']>;
+  sale_price?: Maybe<Scalars['Float']>;
+};
+
+export type ProductAggregatorMax = {
+  __typename?: 'ProductAggregatorMax';
+  cost_price?: Maybe<Scalars['Float']>;
+  sale_price?: Maybe<Scalars['Float']>;
+};
+
+export type ProductAggregatorMin = {
+  __typename?: 'ProductAggregatorMin';
+  cost_price?: Maybe<Scalars['Float']>;
+  sale_price?: Maybe<Scalars['Float']>;
+};
+
+export type ProductAggregatorSum = {
+  __typename?: 'ProductAggregatorSum';
+  cost_price?: Maybe<Scalars['Float']>;
+  sale_price?: Maybe<Scalars['Float']>;
+};
+
+export type ProductConnection = {
+  __typename?: 'ProductConnection';
+  values?: Maybe<Array<Maybe<Product>>>;
+  groupBy?: Maybe<ProductGroupBy>;
+  aggregate?: Maybe<ProductAggregator>;
+};
+
+export type ProductConnectionCode = {
+  __typename?: 'ProductConnectionCode';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionCost_Price = {
+  __typename?: 'ProductConnectionCost_price';
+  key?: Maybe<Scalars['Int']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionCreatedAt = {
+  __typename?: 'ProductConnectionCreatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionDetail = {
+  __typename?: 'ProductConnectionDetail';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionId = {
+  __typename?: 'ProductConnectionId';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionName = {
+  __typename?: 'ProductConnectionName';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionPicture1 = {
+  __typename?: 'ProductConnectionPicture1';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionProduct_Type = {
+  __typename?: 'ProductConnectionProduct_type';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionPublished_At = {
+  __typename?: 'ProductConnectionPublished_at';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionRemark = {
+  __typename?: 'ProductConnectionRemark';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionSale_Price = {
+  __typename?: 'ProductConnectionSale_price';
+  key?: Maybe<Scalars['Int']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionUpdatedAt = {
+  __typename?: 'ProductConnectionUpdatedAt';
+  key?: Maybe<Scalars['DateTime']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnection_Id = {
+  __typename?: 'ProductConnection_id';
+  key?: Maybe<Scalars['ID']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductGroupBy = {
+  __typename?: 'ProductGroupBy';
+  id?: Maybe<Array<Maybe<ProductConnectionId>>>;
+  _id?: Maybe<Array<Maybe<ProductConnection_Id>>>;
+  createdAt?: Maybe<Array<Maybe<ProductConnectionCreatedAt>>>;
+  updatedAt?: Maybe<Array<Maybe<ProductConnectionUpdatedAt>>>;
+  code?: Maybe<Array<Maybe<ProductConnectionCode>>>;
+  product_type?: Maybe<Array<Maybe<ProductConnectionProduct_Type>>>;
+  name?: Maybe<Array<Maybe<ProductConnectionName>>>;
+  detail?: Maybe<Array<Maybe<ProductConnectionDetail>>>;
+  cost_price?: Maybe<Array<Maybe<ProductConnectionCost_Price>>>;
+  sale_price?: Maybe<Array<Maybe<ProductConnectionSale_Price>>>;
+  remark?: Maybe<Array<Maybe<ProductConnectionRemark>>>;
+  picture1?: Maybe<Array<Maybe<ProductConnectionPicture1>>>;
+  published_at?: Maybe<Array<Maybe<ProductConnectionPublished_At>>>;
+};
+
+export type ProductInput = {
+  code?: Maybe<Scalars['String']>;
+  product_type?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  detail?: Maybe<Scalars['String']>;
+  cost_price?: Maybe<Scalars['Int']>;
+  sale_price?: Maybe<Scalars['Int']>;
+  remark?: Maybe<Scalars['String']>;
+  picture1?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export type ProductType = {
   __typename?: 'ProductType';
   id: Scalars['ID'];
@@ -281,6 +466,15 @@ export type ProductType = {
   name?: Maybe<Scalars['String']>;
   code?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
+  products?: Maybe<Array<Maybe<Product>>>;
+};
+
+
+export type ProductTypeProductsArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
 };
 
 export type ProductTypeAggregator = {
@@ -352,6 +546,7 @@ export type ProductTypeGroupBy = {
 export type ProductTypeInput = {
   name?: Maybe<Scalars['String']>;
   code?: Maybe<Scalars['String']>;
+  products?: Maybe<Array<Maybe<Scalars['ID']>>>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -367,6 +562,9 @@ export type Query = {
   productType?: Maybe<ProductType>;
   productTypes?: Maybe<Array<Maybe<ProductType>>>;
   productTypesConnection?: Maybe<ProductTypeConnection>;
+  product?: Maybe<Product>;
+  products?: Maybe<Array<Maybe<Product>>>;
+  productsConnection?: Maybe<ProductConnection>;
   service?: Maybe<Service>;
   services?: Maybe<Array<Maybe<Service>>>;
   servicesConnection?: Maybe<ServiceConnection>;
@@ -405,6 +603,29 @@ export type QueryProductTypesArgs = {
 
 
 export type QueryProductTypesConnectionArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+};
+
+
+export type QueryProductArgs = {
+  id: Scalars['ID'];
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryProductsArgs = {
+  sort?: Maybe<Scalars['String']>;
+  limit?: Maybe<Scalars['Int']>;
+  start?: Maybe<Scalars['Int']>;
+  where?: Maybe<Scalars['JSON']>;
+  publicationState?: Maybe<PublicationState>;
+};
+
+
+export type QueryProductsConnectionArgs = {
   sort?: Maybe<Scalars['String']>;
   limit?: Maybe<Scalars['Int']>;
   start?: Maybe<Scalars['Int']>;
@@ -1263,6 +1484,15 @@ export type UsersPermissionsUserGroupBy = {
   role?: Maybe<Array<Maybe<UsersPermissionsUserConnectionRole>>>;
 };
 
+export type CreateProductInput = {
+  data?: Maybe<ProductInput>;
+};
+
+export type CreateProductPayload = {
+  __typename?: 'createProductPayload';
+  product?: Maybe<Product>;
+};
+
 export type CreateProductTypeInput = {
   data?: Maybe<ProductTypeInput>;
 };
@@ -1324,6 +1554,15 @@ export type DeleteFileInput = {
 export type DeleteFilePayload = {
   __typename?: 'deleteFilePayload';
   file?: Maybe<UploadFile>;
+};
+
+export type DeleteProductInput = {
+  where?: Maybe<InputId>;
+};
+
+export type DeleteProductPayload = {
+  __typename?: 'deleteProductPayload';
+  product?: Maybe<Product>;
 };
 
 export type DeleteProductTypeInput = {
@@ -1407,9 +1646,24 @@ export type EditLocaleInput = {
   updated_by?: Maybe<Scalars['ID']>;
 };
 
+export type EditProductInput = {
+  code?: Maybe<Scalars['String']>;
+  product_type?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+  detail?: Maybe<Scalars['String']>;
+  cost_price?: Maybe<Scalars['Int']>;
+  sale_price?: Maybe<Scalars['Int']>;
+  remark?: Maybe<Scalars['String']>;
+  picture1?: Maybe<Scalars['String']>;
+  published_at?: Maybe<Scalars['DateTime']>;
+  created_by?: Maybe<Scalars['ID']>;
+  updated_by?: Maybe<Scalars['ID']>;
+};
+
 export type EditProductTypeInput = {
   name?: Maybe<Scalars['String']>;
   code?: Maybe<Scalars['String']>;
+  products?: Maybe<Array<Maybe<Scalars['ID']>>>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1461,6 +1715,16 @@ export type EditUserInput = {
   role?: Maybe<Scalars['ID']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
+};
+
+export type UpdateProductInput = {
+  where?: Maybe<InputId>;
+  data?: Maybe<EditProductInput>;
+};
+
+export type UpdateProductPayload = {
+  __typename?: 'updateProductPayload';
+  product?: Maybe<Product>;
 };
 
 export type UpdateProductTypeInput = {
@@ -1710,6 +1974,96 @@ export type GetProductTypeQuery = (
     { __typename?: 'ProductType' }
     & Pick<ProductType, 'id' | 'name' | 'code' | 'updatedAt'>
   )> }
+);
+
+export type GetProductsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetProductsQuery = (
+  { __typename?: 'Query' }
+  & { products?: Maybe<Array<Maybe<(
+    { __typename?: 'Product' }
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & { product_type?: Maybe<(
+      { __typename?: 'ProductType' }
+      & Pick<ProductType, 'id' | 'name'>
+    )> }
+  )>>>, productTypes?: Maybe<Array<Maybe<(
+    { __typename?: 'ProductType' }
+    & Pick<ProductType, 'id' | 'name'>
+  )>>> }
+);
+
+export type GetProductsByTypeQueryVariables = Exact<{
+  type?: Maybe<Scalars['ID']>;
+}>;
+
+
+export type GetProductsByTypeQuery = (
+  { __typename?: 'Query' }
+  & { products?: Maybe<Array<Maybe<(
+    { __typename?: 'Product' }
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & { product_type?: Maybe<(
+      { __typename?: 'ProductType' }
+      & Pick<ProductType, 'id' | 'name'>
+    )> }
+  )>>> }
+);
+
+export type GetProductsByNameQueryVariables = Exact<{
+  name?: Maybe<Scalars['String']>;
+}>;
+
+
+export type GetProductsByNameQuery = (
+  { __typename?: 'Query' }
+  & { products?: Maybe<Array<Maybe<(
+    { __typename?: 'Product' }
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & { product_type?: Maybe<(
+      { __typename?: 'ProductType' }
+      & Pick<ProductType, 'id' | 'name'>
+    )> }
+  )>>> }
+);
+
+export type GetProductsByTypeAndNameQueryVariables = Exact<{
+  type?: Maybe<Scalars['ID']>;
+  name?: Maybe<Scalars['String']>;
+}>;
+
+
+export type GetProductsByTypeAndNameQuery = (
+  { __typename?: 'Query' }
+  & { products?: Maybe<Array<Maybe<(
+    { __typename?: 'Product' }
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & { product_type?: Maybe<(
+      { __typename?: 'ProductType' }
+      & Pick<ProductType, 'id' | 'name'>
+    )> }
+  )>>> }
+);
+
+export type GetProductQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type GetProductQuery = (
+  { __typename?: 'Query' }
+  & { product?: Maybe<(
+    { __typename?: 'Product' }
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & { product_type?: Maybe<(
+      { __typename?: 'ProductType' }
+      & Pick<ProductType, 'id' | 'name'>
+    )> }
+  )>, productTypes?: Maybe<Array<Maybe<(
+    { __typename?: 'ProductType' }
+    & Pick<ProductType, 'id' | 'name'>
+  )>>> }
 );
 
 export type GetTeamsQueryVariables = Exact<{ [key: string]: never; }>;
@@ -2223,6 +2577,249 @@ export function useGetProductTypeLazyQuery(baseOptions?: Apollo.LazyQueryHookOpt
 export type GetProductTypeQueryHookResult = ReturnType<typeof useGetProductTypeQuery>;
 export type GetProductTypeLazyQueryHookResult = ReturnType<typeof useGetProductTypeLazyQuery>;
 export type GetProductTypeQueryResult = Apollo.QueryResult<GetProductTypeQuery, GetProductTypeQueryVariables>;
+export const GetProductsDocument = gql`
+    query GetProducts {
+  products {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+  productTypes {
+    id
+    name
+  }
+}
+    `;
+
+/**
+ * __useGetProductsQuery__
+ *
+ * To run a query within a React component, call `useGetProductsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetProductsQuery(baseOptions?: Apollo.QueryHookOptions<GetProductsQuery, GetProductsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductsQuery, GetProductsQueryVariables>(GetProductsDocument, options);
+      }
+export function useGetProductsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductsQuery, GetProductsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProductsQuery, GetProductsQueryVariables>(GetProductsDocument, options);
+        }
+export type GetProductsQueryHookResult = ReturnType<typeof useGetProductsQuery>;
+export type GetProductsLazyQueryHookResult = ReturnType<typeof useGetProductsLazyQuery>;
+export type GetProductsQueryResult = Apollo.QueryResult<GetProductsQuery, GetProductsQueryVariables>;
+export const GetProductsByTypeDocument = gql`
+    query GetProductsByType($type: ID) {
+  products(where: {product_type: {id: $type}}) {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useGetProductsByTypeQuery__
+ *
+ * To run a query within a React component, call `useGetProductsByTypeQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductsByTypeQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductsByTypeQuery({
+ *   variables: {
+ *      type: // value for 'type'
+ *   },
+ * });
+ */
+export function useGetProductsByTypeQuery(baseOptions?: Apollo.QueryHookOptions<GetProductsByTypeQuery, GetProductsByTypeQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductsByTypeQuery, GetProductsByTypeQueryVariables>(GetProductsByTypeDocument, options);
+      }
+export function useGetProductsByTypeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductsByTypeQuery, GetProductsByTypeQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProductsByTypeQuery, GetProductsByTypeQueryVariables>(GetProductsByTypeDocument, options);
+        }
+export type GetProductsByTypeQueryHookResult = ReturnType<typeof useGetProductsByTypeQuery>;
+export type GetProductsByTypeLazyQueryHookResult = ReturnType<typeof useGetProductsByTypeLazyQuery>;
+export type GetProductsByTypeQueryResult = Apollo.QueryResult<GetProductsByTypeQuery, GetProductsByTypeQueryVariables>;
+export const GetProductsByNameDocument = gql`
+    query GetProductsByName($name: String) {
+  products(where: {name_contains: $name}) {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useGetProductsByNameQuery__
+ *
+ * To run a query within a React component, call `useGetProductsByNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductsByNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductsByNameQuery({
+ *   variables: {
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function useGetProductsByNameQuery(baseOptions?: Apollo.QueryHookOptions<GetProductsByNameQuery, GetProductsByNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductsByNameQuery, GetProductsByNameQueryVariables>(GetProductsByNameDocument, options);
+      }
+export function useGetProductsByNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductsByNameQuery, GetProductsByNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProductsByNameQuery, GetProductsByNameQueryVariables>(GetProductsByNameDocument, options);
+        }
+export type GetProductsByNameQueryHookResult = ReturnType<typeof useGetProductsByNameQuery>;
+export type GetProductsByNameLazyQueryHookResult = ReturnType<typeof useGetProductsByNameLazyQuery>;
+export type GetProductsByNameQueryResult = Apollo.QueryResult<GetProductsByNameQuery, GetProductsByNameQueryVariables>;
+export const GetProductsByTypeAndNameDocument = gql`
+    query GetProductsByTypeAndName($type: ID, $name: String) {
+  products(where: {product_type: {id: $type}, name_contains: $name}) {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useGetProductsByTypeAndNameQuery__
+ *
+ * To run a query within a React component, call `useGetProductsByTypeAndNameQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductsByTypeAndNameQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductsByTypeAndNameQuery({
+ *   variables: {
+ *      type: // value for 'type'
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function useGetProductsByTypeAndNameQuery(baseOptions?: Apollo.QueryHookOptions<GetProductsByTypeAndNameQuery, GetProductsByTypeAndNameQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductsByTypeAndNameQuery, GetProductsByTypeAndNameQueryVariables>(GetProductsByTypeAndNameDocument, options);
+      }
+export function useGetProductsByTypeAndNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductsByTypeAndNameQuery, GetProductsByTypeAndNameQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProductsByTypeAndNameQuery, GetProductsByTypeAndNameQueryVariables>(GetProductsByTypeAndNameDocument, options);
+        }
+export type GetProductsByTypeAndNameQueryHookResult = ReturnType<typeof useGetProductsByTypeAndNameQuery>;
+export type GetProductsByTypeAndNameLazyQueryHookResult = ReturnType<typeof useGetProductsByTypeAndNameLazyQuery>;
+export type GetProductsByTypeAndNameQueryResult = Apollo.QueryResult<GetProductsByTypeAndNameQuery, GetProductsByTypeAndNameQueryVariables>;
+export const GetProductDocument = gql`
+    query GetProduct($id: ID!) {
+  product(id: $id) {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+  productTypes {
+    id
+    name
+  }
+}
+    `;
+
+/**
+ * __useGetProductQuery__
+ *
+ * To run a query within a React component, call `useGetProductQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetProductQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetProductQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetProductQuery(baseOptions: Apollo.QueryHookOptions<GetProductQuery, GetProductQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetProductQuery, GetProductQueryVariables>(GetProductDocument, options);
+      }
+export function useGetProductLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetProductQuery, GetProductQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetProductQuery, GetProductQueryVariables>(GetProductDocument, options);
+        }
+export type GetProductQueryHookResult = ReturnType<typeof useGetProductQuery>;
+export type GetProductLazyQueryHookResult = ReturnType<typeof useGetProductLazyQuery>;
+export type GetProductQueryResult = Apollo.QueryResult<GetProductQuery, GetProductQueryVariables>;
 export const GetTeamsDocument = gql`
     query GetTeams {
   teams {

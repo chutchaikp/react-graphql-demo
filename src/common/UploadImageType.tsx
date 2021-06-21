@@ -3,4 +3,5 @@ export type UploadImageType = {
 	fileName: string;
 	percent?: number; // percent uploading
 	url?: string;
+	delete_token?: string;
 };

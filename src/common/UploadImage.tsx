@@ -23,8 +23,10 @@ const UploadImage: React.FC<UploadImageProps> = ({ photoId, onProgress, onUpload
 					.field('upload_preset', process.env?.REACT_APP_UPLOAD_PRESET || "")
 					.field('file', file)
 					.field('multiple', true)
-					// .field('tags', title ? `myphotoalbum,${title}` : 'myphotoalbum')
-					// .field('context', title ? `photo=${title}` : '')
+
+					.field('tags', fileName) // ? `myphotoalbum,${title}` : 'myphotoalbum')
+					.field('context', fileName) // title ? `photo=${title}` : '')
+
 					.on('progress', (progress: any) => {
 						onProgress(photoId, file.name, Math.floor(progress.percent));
 					})

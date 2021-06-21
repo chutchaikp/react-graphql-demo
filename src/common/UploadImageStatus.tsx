@@ -22,10 +22,12 @@
 
 
 
-import React from 'react'
+import { Button } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
 import { UploadImageType } from '../common/UploadImageType';
 import emptyImg from '../imgs/empty.jpeg'
 import styles from '../App.module.css'
+import request from 'superagent';
 
 interface UploadImageStatusProps {
 	uploads: UploadImageType[]
@@ -33,12 +35,39 @@ interface UploadImageStatusProps {
 
 const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 
+	const [photos, setPhotos] = useState<any>([])
+
+	useEffect(() => {
+		const rev = [...uploads].reverse();
+		setPhotos(rev)
+	}, [])
+
 	// debugger;
-	const uploadsRev = [...uploads].reverse()
 
 	function resizeImage(img: any) {
 		img.style.width = "500px";
 		img.style.height = "500px";
+	}
+
+	const deletePhoto = (token: string) => {
+
+		request
+			.post(
+				`https://api.cloudinary.com/v1_1/${this.context.cloudName
+				}/delete_by_token`
+			)
+			.set('Content-Type', 'application/json')
+			.set('X-Requested-With', 'XMLHttpRequest')
+			.send({ token, })
+			.then((res) => {
+				debugger;
+				// update state by the way
+
+
+			});
+
+		//this.onDeletePhoto.bind(this));
+
 	}
 
 	return (
@@ -46,7 +75,7 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 			Upload image status ..
 
 			<div>
-				{uploadsRev && uploadsRev.map((t: UploadImageType) => {
+				{photos && photos.map((t: UploadImageType) => {
 					return (
 						<div key={t.photoId} style={{ margin: "1rem" }}>
 							<div>
@@ -73,6 +102,13 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 										/>
 									</div>
 								</div>
+							)}
+
+							{t.delete_token && (
+								<Button colorScheme="red" onClick={() => {
+									console.log(t.delete_token);
+
+								}} >REMOVE!</Button>
 							)}
 
 						</div>

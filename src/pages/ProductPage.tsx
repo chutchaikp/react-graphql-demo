@@ -1,10 +1,10 @@
 // export default ProductPage
 
-import { Button, Flex, FormControl, Heading, Input, VStack, Text } from '@chakra-ui/react';
+import { Select, Button, Flex, FormControl, Heading, Input, VStack, Text, HStack, Textarea, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from '@chakra-ui/react';
 import React, { useState } from 'react'
 
 import { useHistory } from 'react-router-dom';
-// import { Service, useDeleteServiceMutation, useGetServiceQuery, useUpdateServiceMutation } from '../types/graphql.v1';
+import { useGetProductQuery } from '../types/graphql.v1';
 
 const ProductPage = (props: any) => {
 
@@ -12,14 +12,17 @@ const ProductPage = (props: any) => {
 	const [validate, setValidate] = useState<any>({
 		name: false,
 	})
-	const [service, setService] = useState<Service>()
-	// get
-	const { loading, data, error } = useGetServiceQuery({
+	const [product, setProduct] = useState<any>()
+	const [productType, setProductType] = useState<any>([])
+
+	const { loading, data, error } = useGetProductQuery({
 		variables: { id: props.match.params.id },
-		onCompleted: (data: any) => {
-			setService(data.service)
+		onCompleted: (data) => {
+			debugger;
+			setProduct(data.product)
+			setProductType(data.productTypes)
 		}
-	})
+	});
 	// // update
 	// const [update, updateVars] = useUpdateServiceMutation();
 
@@ -58,8 +61,10 @@ const ProductPage = (props: any) => {
 
 	return (
 		<Flex w="100%" direction="column" p="1rem">
-			<Heading mb="1rem">สินค้า</Heading>
-			<Flex direction="column" w="100%">
+			<Heading mb="1rem">
+				สินค้า
+			</Heading>
+			<Flex direction="column" >
 				{/* {loading && (
 					<div>Loaing ...</div>
 				)} */}
@@ -68,25 +73,76 @@ const ProductPage = (props: any) => {
 					<form onSubmit={formSubmit}>
 						<VStack spacing={5}>
 
-							{/* Product Code */}
-
-							{/* Barcode  */}
+							{/* Product Code */} {/* Barcode  */}
+							<FormControl>
+								<label>
+									ระหัส <Input name="code" />
+								</label>
+							</FormControl>
 
 							{/* Product Type */}
+							<FormControl>
+								<label>
+									ประเภท
+									<Select value={product?.product_type.id || ""}>
+										{productType.map((pt: any) => {
+											return (
+												<option key={pt.id} value={pt.id}>{pt.name}</option>
+											)
+										})}
+									</Select>
+								</label>
+							</FormControl>
 
 							{/* Product Name */}
 							<FormControl isInvalid={validate.name}>
 								<label >
-									ชื่อ <Text as="span" color="gray.200" size="xs">{service?.id}</Text>
-									<Input name="name" value={service?.name || ""} onChange={(e) => {
-										setService((sv: any) => {
-											return { ...sv, name: e.target.value }
-										}
-										);
-									}}
+									ชื่อ
+									<Input name="name" value={product?.name || ""} />
+								</label>
+							</FormControl>
+
+							{/* Detail */}
+							<FormControl>
+								<label >
+									รายละเอียด
+									<Textarea
+										value={product?.detail}
+										size="sm"
 									/>
 								</label>
 							</FormControl>
+
+							{/* cost price */} {/* sale price */}
+							<FormControl>
+								<HStack>
+									<label >
+										ราคาต้นทุน
+										<NumberInput defaultValue={0} >
+											<NumberInputField />
+											<NumberInputStepper>
+												<NumberIncrementStepper />
+												<NumberDecrementStepper />
+											</NumberInputStepper>
+										</NumberInput>
+									</label>
+
+									<label >
+										ราคาขาย
+										<NumberInput defaultValue={0} >
+											<NumberInputField />
+											<NumberInputStepper>
+												<NumberIncrementStepper />
+												<NumberDecrementStepper />
+											</NumberInputStepper>
+										</NumberInput>
+									</label>
+								</HStack>
+							</FormControl>
+
+							{/* remark */}
+
+							{/* pictures */}
 
 							<Flex alignSelf="stretch">
 								<Button flex={1} mx="3px" type="submit" colorScheme="teal" variant="solid" >

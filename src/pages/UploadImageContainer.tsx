@@ -18,6 +18,7 @@ const UploadImageContainer: React.FC = (props) => {
 			fileName: "Image001.png",
 			percent: 50,
 			// url: 'https://res.cloudinary.com/dexoyyxyg/image/upload/v1622249946/Screen_Shot_2564-05-11_at_03.48.52_rpidjx.png',
+			delete_token: "",
 		},
 	])
 
@@ -29,7 +30,6 @@ const UploadImageContainer: React.FC = (props) => {
 			</Heading>
 
 			<UploadImage photoId={uploads.length + 1} onProgress={(photoId, fileName, progress) => {
-
 				// Add new or update exist
 				setUploads((prev: UploadImageType[]) => {
 					if (prev.some((p) => p.photoId === photoId)) {
@@ -52,7 +52,14 @@ const UploadImageContainer: React.FC = (props) => {
 				setUploads((prev: UploadImageType[]) => {
 					const newUpload = prev.map((u) => {
 						if (u.photoId === photoId) {
-							return { ...u, percent: 100, url: response.body.url || "" }
+
+							debugger;
+							return {
+								...u,
+								percent: 100,
+								url: response.body.url || "",
+								delete_token: response.body.delete_token
+							}
 						}
 						return { ...u };
 					});

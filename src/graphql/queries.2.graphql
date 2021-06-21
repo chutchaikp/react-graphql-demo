@@ -31,7 +31,7 @@ query SearchByName($name_contains: String!) {
   }
 }
 
-# Query Product Types
+# Product Types --------------------------------
 
 query GetProductTypes {
   productTypes {
@@ -48,5 +48,110 @@ query GetProductType($id: ID!) {
     name
     code
     updatedAt
+  }
+}
+
+# Product -------------------------------------------
+
+query GetProducts {
+  products {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+
+  productTypes {
+    id
+    name
+  }
+}
+
+# Product by product_type
+query GetProductsByType($type: ID) {
+  products(where: { product_type: { id: $type } }) {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+}
+
+# Product search by name
+query GetProductsByName($name: String) {
+  products(where: { name_contains: $name }) {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+}
+
+# Product by type & name
+query GetProductsByTypeAndName($type: ID, $name: String) {
+  products(where: { product_type: { id: $type }, name_contains: $name }) {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+}
+
+query GetProduct($id: ID!) {
+  product(id: $id) {
+    id
+    code
+    product_type {
+      id
+      name
+    }
+    name
+    detail
+    cost_price
+    sale_price
+    remark
+    picture1
+    updatedAt
+  }
+
+  productTypes {
+    id
+    name
   }
 }
