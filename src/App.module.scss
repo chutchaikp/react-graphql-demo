@@ -79,8 +79,6 @@ p {
 	line-height: 1.9;
 }
 
-
-
 .AppHeader {
 	display: flex;
 	flex-direction: row;
@@ -138,6 +136,10 @@ p {
 // 		margin: 0.35rem;
 // 	}
 // }
+
+form {
+	width: 375px;	
+}
 
 .todo{	
 	

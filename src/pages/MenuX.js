@@ -30,7 +30,7 @@ function MenuX() {
 
 						<VStack w="100%" spacing="34px">
 
-							<SimpleGrid columns={2} spacing="7px" alignSelf="stretch">
+							<SimpleGrid columns={1} spacing="7px" alignSelf="stretch">
 								<Link onClick={onClickLink} to="/" >Home</Link>
 								{/* <Link onClick={onClickLink} to="/hook">Hook</Link>
 								<Link onClick={onClickLink} to="/lazyhook">Lazy hook</Link>
@@ -51,7 +51,7 @@ function MenuX() {
 								<Link onClick={onClickLink} to="/uploadimage" >Upload images</Link>
 							</SimpleGrid> */}
 
-							<SimpleGrid columns={2} spacing="10px" alignSelf="stretch" >
+							<SimpleGrid columns={1} spacing="13px" alignSelf="stretch" >
 								<Link onClick={onClickLink} to="/products-page" >สินค้า</Link>
 								{/* <Link onClick={onClickLink} to="/" >Home</Link> */}
 								{/* <Link onClick={onClickLink} to="/menu" >Menu</Link> */}

@@ -112,6 +112,10 @@ p {
   min-height: 50vh;
 }
 
+form {
+  width: 375px;
+}
+
 .todoStrike {
   text-decoration: line-through;
 }

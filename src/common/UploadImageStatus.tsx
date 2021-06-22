@@ -35,14 +35,19 @@ interface UploadImageStatusProps {
 
 const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 
-	const [photos, setPhotos] = useState<any>([])
+	const [photos, setPhotos] = useState<any>(() => {
+		debugger;
+		return [...uploads]
+	})
 
-	useEffect(() => {
-		const rev = [...uploads].reverse();
-		setPhotos(rev)
-	}, [])
+	// useEffect(() => {
+	// 	debugger;
+	// 	let rev = [...uploads]
+	// 	let photos = rev.reverse();
+	// 	setPhotos(photos)
+	// }, [])
 
-	// debugger;
+	debugger;
 
 	function resizeImage(img: any) {
 		img.style.width = "500px";
@@ -51,19 +56,36 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 
 	const deletePhoto = (token: string) => {
 
+		// if (__DEV__) {
+		// let newPhotos = [...photos];
+		// newPhotos = newPhotos.filter((t) => {
+		// 	return t.delete_token !== token
+		// })
+		// setPhotos(newPhotos);
+		// return;
+		// }
+
 		request
 			.post(
-				`https://api.cloudinary.com/v1_1/${this.context.cloudName
-				}/delete_by_token`
+				`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/delete_by_token`
 			)
 			.set('Content-Type', 'application/json')
 			.set('X-Requested-With', 'XMLHttpRequest')
 			.send({ token, })
 			.then((res) => {
 				debugger;
-				// update state by the way
-
-
+				// let newPhotos = [...photos];
+				// newPhotos = newPhotos.filter((t) => {
+				// 	return t.delete_token !== token
+				// })
+				// setPhotos(newPhotos);
+			}).catch((err) => {
+				debugger;
+				// let newPhotos = [...photos];
+				// newPhotos = newPhotos.filter((t) => {
+				// 	return t.delete_token !== token
+				// })
+				// setPhotos(newPhotos);
 			});
 
 		//this.onDeletePhoto.bind(this));
@@ -105,9 +127,8 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 							)}
 
 							{t.delete_token && (
-								<Button colorScheme="red" onClick={() => {
-									console.log(t.delete_token);
-
+								<Button ml="1rem" size="xs" colorScheme="red" onClick={() => {
+									deletePhoto(t.delete_token || "")
 								}} >REMOVE!</Button>
 							)}
 

@@ -13,13 +13,20 @@ const UploadImageContainer: React.FC = (props) => {
 
 
 	const [uploads, setUploads] = useState<UploadImageType[]>([
-		{
-			photoId: 0,
-			fileName: "Image001.png",
-			percent: 50,
-			// url: 'https://res.cloudinary.com/dexoyyxyg/image/upload/v1622249946/Screen_Shot_2564-05-11_at_03.48.52_rpidjx.png',
-			delete_token: "",
-		},
+		// {
+		// 	photoId: 0,
+		// 	fileName: "Image001.png",
+		// 	percent: 50,
+		// 	// url: 'https://res.cloudinary.com/dexoyyxyg/image/upload/v1622249946/Screen_Shot_2564-05-11_at_03.48.52_rpidjx.png',
+		// 	delete_token: "xx",
+		// },
+		// {
+		// 	photoId: 1,
+		// 	fileName: "Image002.png",
+		// 	percent: 100,
+		// 	url: 'https://res.cloudinary.com/dexoyyxyg/image/upload/v1624380781/b15zwpislgr3sbwokoui.jpg',
+		// 	delete_token: "yy",
+		// },
 	])
 
 	return (
@@ -47,13 +54,10 @@ const UploadImageContainer: React.FC = (props) => {
 					}
 				});
 			}} onUploaded={(photoId, fileName, response) => {
-				// 100% uploaded
-				debugger;
+				// 100% uploaded				
 				setUploads((prev: UploadImageType[]) => {
 					const newUpload = prev.map((u) => {
 						if (u.photoId === photoId) {
-
-							debugger;
 							return {
 								...u,
 								percent: 100,
