@@ -5,7 +5,6 @@ export const uploadSlice = createSlice({
 	initialState: [],
 	reducers: {
 		addUpload: (state, action) => {
-			debugger;
 			// fileName: "samsung-air-conditioner.jpeg"
 			// percent: 100
 			// photoId: 1
@@ -24,8 +23,6 @@ export const uploadSlice = createSlice({
 		},
 		updateUpload: (state, action) => {
 			const payload = action.payload;
-			debugger;
-
 			state.map((t) => {
 				if (t.photoId === payload.photoId) {
 					// update percent, url, delete_token
@@ -37,7 +34,6 @@ export const uploadSlice = createSlice({
 
 		},
 		deleteUpload: (state, action) => {
-			debugger;
 			return state.filter((t) => {
 				// return t.photoId !== action.payload.photoId
 				return t.delete_token !== action.payload.delete_token

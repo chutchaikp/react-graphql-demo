@@ -36,7 +36,6 @@ interface UploadImageStatusProps {
 const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 
 	const [photos, setPhotos] = useState<any>(() => {
-		debugger;
 		return [...uploads]
 	})
 

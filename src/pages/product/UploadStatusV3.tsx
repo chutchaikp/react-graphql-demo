@@ -15,8 +15,6 @@ const UploadStatusV3 = () => {
 
 	const deletePhoto = (token: string) => {
 
-		debugger;
-
 		request
 			.post(
 				`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/delete_by_token`
@@ -25,7 +23,7 @@ const UploadStatusV3 = () => {
 			.set('X-Requested-With', 'XMLHttpRequest')
 			.send({ token, })
 			.then((res) => {
-				debugger;
+
 				// let newUploads = [...uploads];
 				// newUploads = newUploads.filter((t) => {
 				// 	return t.delete_token !== token
@@ -37,8 +35,6 @@ const UploadStatusV3 = () => {
 				dispatch(deleteUpload({ delete_token: token }))
 			});
 	}
-
-	debugger;
 
 	return (<div>
 		<Flex direction="column">

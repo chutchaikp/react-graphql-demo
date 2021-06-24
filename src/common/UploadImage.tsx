@@ -24,7 +24,7 @@ const UploadImage: React.FC<UploadImageProps> = ({ photoId, onProgress, onUpload
 					.field('tags', fileName) // ? `myphotoalbum,${title}` : 'myphotoalbum')
 					.field('context', fileName) // title ? `photo=${title}` : '')
 					.on('progress', (progress: any) => {
-						debugger; // url = ?
+						console.log('upload % ' + progress.percent);
 						onProgress(photoId, file.name, Math.floor(progress.percent));
 					})
 					.end((error, response) => {

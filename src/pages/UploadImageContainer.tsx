@@ -28,14 +28,13 @@ const UploadImageContainer = (props: any) => {
 						dispatch(addUpload({ photoId, fileName, percent: progress || 100 }))
 						setTimeout(() => {
 							setPhotoId(photoId + 1)
-						}, 100)
+						}, 10)
 					}
 					// props.onUpdated(() => {
 					// 	return uploads;
 					// });
 				}}
 				onUploaded={(photoId, fileName, response) => {
-					debugger;
 					// 100% uploaded									
 					debugger;
 
