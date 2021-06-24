@@ -138,8 +138,8 @@ const ProductSearch = (props: any) => {
 		{
 			/* Type */
 		}
-		<Select size="sm" mb="0.5rem" ref={selectRef} onChange={() => { props.onSearch(selectRef.current?.value, inpRef.current?.value) }}>
-			<option selected value="">ทั้งหมด</option>
+		<Select defaultValue="" size="sm" mb="0.5rem" ref={selectRef} onChange={() => { props.onSearch(selectRef.current?.value, inpRef.current?.value) }}>
+			<option value="">ทั้งหมด</option>
 			{props.productTypes.length > 0 && props.productTypes.map((pt: any) => {
 				return <option key={pt.id} value={pt.id}>{pt.name}</option>;
 			})}

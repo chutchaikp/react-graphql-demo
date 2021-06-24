@@ -40,31 +40,7 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 		return [...uploads]
 	})
 
-	// useEffect(() => {
-	// 	debugger;
-	// 	let rev = [...uploads]
-	// 	let photos = rev.reverse();
-	// 	setPhotos(photos)
-	// }, [])
-
-	debugger;
-
-	function resizeImage(img: any) {
-		img.style.width = "500px";
-		img.style.height = "500px";
-	}
-
 	const deletePhoto = (token: string) => {
-
-		// if (__DEV__) {
-		// let newPhotos = [...photos];
-		// newPhotos = newPhotos.filter((t) => {
-		// 	return t.delete_token !== token
-		// })
-		// setPhotos(newPhotos);
-		// return;
-		// }
-
 		request
 			.post(
 				`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/delete_by_token`
@@ -87,9 +63,6 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 				// })
 				// setPhotos(newPhotos);
 			});
-
-		//this.onDeletePhoto.bind(this));
-
 	}
 
 	return (
@@ -101,18 +74,7 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 					return (
 						<div key={t.photoId} style={{ margin: "1rem" }}>
 							<div>
-								<img onClick={(e: any) => {
-									if (e.target.width === 200) {
-										e.target.style.left = "0px"
-										e.target.style.top = "0px"
-										e.target.style.position = "absolute"
-										e.target.style.width = "500px"
-										e.target.style.zIndex = 999
-									} else {
-										e.target.style.width = "200px"
-										e.target.style.position = "relative"
-									}
-								}} width="200px" src={t.url || emptyImg} alt={t.fileName} />
+								<img width="200px" src={t.url || emptyImg} alt={t.fileName} />
 							</div>
 							{t.fileName}
 

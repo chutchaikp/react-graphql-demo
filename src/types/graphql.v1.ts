@@ -85,7 +85,7 @@ export type LocaleInput = {
 };
 
 
-export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnection_Id | ProductTypeConnectionCreatedAt | ProductTypeConnectionUpdatedAt | ProductTypeConnectionName | ProductTypeConnectionCode | ProductTypeConnectionPublished_At | CreateProductTypePayload | UpdateProductTypePayload | DeleteProductTypePayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnection_Id | ProductConnectionCreatedAt | ProductConnectionUpdatedAt | ProductConnectionCode | ProductConnectionProduct_Type | ProductConnectionName | ProductConnectionDetail | ProductConnectionCost_Price | ProductConnectionSale_Price | ProductConnectionRemark | ProductConnectionPicture1 | ProductConnectionPublished_At | CreateProductPayload | UpdateProductPayload | DeleteProductPayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnection_Id | ServiceConnectionCreatedAt | ServiceConnectionUpdatedAt | ServiceConnectionName | ServiceConnectionDesc | ServiceConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | Team | TeamConnection | TeamAggregator | TeamGroupBy | TeamConnectionId | TeamConnection_Id | TeamConnectionCreatedAt | TeamConnectionUpdatedAt | TeamConnectionName | TeamConnectionCountry | TeamConnectionPublished_At | CreateTeamPayload | UpdateTeamPayload | DeleteTeamPayload | Todo | TodoConnection | TodoAggregator | TodoGroupBy | TodoConnectionId | TodoConnection_Id | TodoConnectionCreatedAt | TodoConnectionUpdatedAt | TodoConnectionTitle | TodoConnectionFinished | TodoConnectionPublished_At | CreateTodoPayload | UpdateTodoPayload | DeleteTodoPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
+export type Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | ProductType | ProductTypeConnection | ProductTypeAggregator | ProductTypeGroupBy | ProductTypeConnectionId | ProductTypeConnection_Id | ProductTypeConnectionCreatedAt | ProductTypeConnectionUpdatedAt | ProductTypeConnectionName | ProductTypeConnectionCode | ProductTypeConnectionPublished_At | CreateProductTypePayload | UpdateProductTypePayload | DeleteProductTypePayload | Product | ProductConnection | ProductAggregator | ProductAggregatorSum | ProductAggregatorAvg | ProductAggregatorMin | ProductAggregatorMax | ProductGroupBy | ProductConnectionId | ProductConnection_Id | ProductConnectionCreatedAt | ProductConnectionUpdatedAt | ProductConnectionCode | ProductConnectionProduct_Type | ProductConnectionName | ProductConnectionDetail | ProductConnectionCost_Price | ProductConnectionSale_Price | ProductConnectionRemark | ProductConnectionPicture1 | ProductConnectionPicture2 | ProductConnectionPicture3 | ProductConnectionPicture1_Delete_Token | ProductConnectionPicture2_Delete_Token | ProductConnectionPicture3_Delete_Token | ProductConnectionPublished_At | CreateProductPayload | UpdateProductPayload | DeleteProductPayload | Service | ServiceConnection | ServiceAggregator | ServiceGroupBy | ServiceConnectionId | ServiceConnection_Id | ServiceConnectionCreatedAt | ServiceConnectionUpdatedAt | ServiceConnectionName | ServiceConnectionDesc | ServiceConnectionPublished_At | CreateServicePayload | UpdateServicePayload | DeleteServicePayload | Team | TeamConnection | TeamAggregator | TeamGroupBy | TeamConnectionId | TeamConnection_Id | TeamConnectionCreatedAt | TeamConnectionUpdatedAt | TeamConnectionName | TeamConnectionCountry | TeamConnectionPublished_At | CreateTeamPayload | UpdateTeamPayload | DeleteTeamPayload | Todo | TodoConnection | TodoAggregator | TodoGroupBy | TodoConnectionId | TodoConnection_Id | TodoConnectionCreatedAt | TodoConnectionUpdatedAt | TodoConnectionTitle | TodoConnectionFinished | TodoConnectionPublished_At | CreateTodoPayload | UpdateTodoPayload | DeleteTodoPayload | I18NLocale | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_Id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_Metadata | DeleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_Id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | CreateRolePayload | UpdateRolePayload | DeleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_Id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | CreateUserPayload | UpdateUserPayload | DeleteUserPayload;
 
 export type Mutation = {
   __typename?: 'Mutation';
@@ -304,6 +304,11 @@ export type Product = {
   sale_price?: Maybe<Scalars['Int']>;
   remark?: Maybe<Scalars['String']>;
   picture1?: Maybe<Scalars['String']>;
+  picture2?: Maybe<Scalars['String']>;
+  picture3?: Maybe<Scalars['String']>;
+  picture1_delete_token?: Maybe<Scalars['String']>;
+  picture2_delete_token?: Maybe<Scalars['String']>;
+  picture3_delete_token?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
 };
 
@@ -390,6 +395,36 @@ export type ProductConnectionPicture1 = {
   connection?: Maybe<ProductConnection>;
 };
 
+export type ProductConnectionPicture1_Delete_Token = {
+  __typename?: 'ProductConnectionPicture1_delete_token';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionPicture2 = {
+  __typename?: 'ProductConnectionPicture2';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionPicture2_Delete_Token = {
+  __typename?: 'ProductConnectionPicture2_delete_token';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionPicture3 = {
+  __typename?: 'ProductConnectionPicture3';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
+export type ProductConnectionPicture3_Delete_Token = {
+  __typename?: 'ProductConnectionPicture3_delete_token';
+  key?: Maybe<Scalars['String']>;
+  connection?: Maybe<ProductConnection>;
+};
+
 export type ProductConnectionProduct_Type = {
   __typename?: 'ProductConnectionProduct_type';
   key?: Maybe<Scalars['ID']>;
@@ -440,6 +475,11 @@ export type ProductGroupBy = {
   sale_price?: Maybe<Array<Maybe<ProductConnectionSale_Price>>>;
   remark?: Maybe<Array<Maybe<ProductConnectionRemark>>>;
   picture1?: Maybe<Array<Maybe<ProductConnectionPicture1>>>;
+  picture2?: Maybe<Array<Maybe<ProductConnectionPicture2>>>;
+  picture3?: Maybe<Array<Maybe<ProductConnectionPicture3>>>;
+  picture1_delete_token?: Maybe<Array<Maybe<ProductConnectionPicture1_Delete_Token>>>;
+  picture2_delete_token?: Maybe<Array<Maybe<ProductConnectionPicture2_Delete_Token>>>;
+  picture3_delete_token?: Maybe<Array<Maybe<ProductConnectionPicture3_Delete_Token>>>;
   published_at?: Maybe<Array<Maybe<ProductConnectionPublished_At>>>;
 };
 
@@ -452,6 +492,11 @@ export type ProductInput = {
   sale_price?: Maybe<Scalars['Int']>;
   remark?: Maybe<Scalars['String']>;
   picture1?: Maybe<Scalars['String']>;
+  picture2?: Maybe<Scalars['String']>;
+  picture3?: Maybe<Scalars['String']>;
+  picture1_delete_token?: Maybe<Scalars['String']>;
+  picture2_delete_token?: Maybe<Scalars['String']>;
+  picture3_delete_token?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1655,6 +1700,11 @@ export type EditProductInput = {
   sale_price?: Maybe<Scalars['Int']>;
   remark?: Maybe<Scalars['String']>;
   picture1?: Maybe<Scalars['String']>;
+  picture2?: Maybe<Scalars['String']>;
+  picture3?: Maybe<Scalars['String']>;
+  picture1_delete_token?: Maybe<Scalars['String']>;
+  picture2_delete_token?: Maybe<Scalars['String']>;
+  picture3_delete_token?: Maybe<Scalars['String']>;
   published_at?: Maybe<Scalars['DateTime']>;
   created_by?: Maybe<Scalars['ID']>;
   updated_by?: Maybe<Scalars['ID']>;
@@ -1885,6 +1935,55 @@ export type DeleteProductTypeMutation = (
   )> }
 );
 
+export type CreateProductMutationVariables = Exact<{
+  p?: Maybe<ProductInput>;
+}>;
+
+
+export type CreateProductMutation = (
+  { __typename?: 'Mutation' }
+  & { createProduct?: Maybe<(
+    { __typename?: 'createProductPayload' }
+    & { product?: Maybe<(
+      { __typename?: 'Product' }
+      & Pick<Product, 'id'>
+    )> }
+  )> }
+);
+
+export type UpdateProductMutationVariables = Exact<{
+  id: Scalars['ID'];
+  product?: Maybe<EditProductInput>;
+}>;
+
+
+export type UpdateProductMutation = (
+  { __typename?: 'Mutation' }
+  & { updateProduct?: Maybe<(
+    { __typename?: 'updateProductPayload' }
+    & { product?: Maybe<(
+      { __typename?: 'Product' }
+      & Pick<Product, 'id'>
+    )> }
+  )> }
+);
+
+export type DeleteProductMutationVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type DeleteProductMutation = (
+  { __typename?: 'Mutation' }
+  & { deleteProduct?: Maybe<(
+    { __typename?: 'deleteProductPayload' }
+    & { product?: Maybe<(
+      { __typename?: 'Product' }
+      & Pick<Product, 'id' | 'name'>
+    )> }
+  )> }
+);
+
 export type AppLoginMutationVariables = Exact<{
   email: Scalars['String'];
   password: Scalars['String'];
@@ -1983,7 +2082,7 @@ export type GetProductsQuery = (
   { __typename?: 'Query' }
   & { products?: Maybe<Array<Maybe<(
     { __typename?: 'Product' }
-    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'picture2' | 'picture3' | 'picture1_delete_token' | 'picture2_delete_token' | 'picture3_delete_token' | 'updatedAt'>
     & { product_type?: Maybe<(
       { __typename?: 'ProductType' }
       & Pick<ProductType, 'id' | 'name'>
@@ -2003,7 +2102,7 @@ export type GetProductsByTypeQuery = (
   { __typename?: 'Query' }
   & { products?: Maybe<Array<Maybe<(
     { __typename?: 'Product' }
-    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'picture2' | 'picture3' | 'picture1_delete_token' | 'picture2_delete_token' | 'picture3_delete_token' | 'updatedAt'>
     & { product_type?: Maybe<(
       { __typename?: 'ProductType' }
       & Pick<ProductType, 'id' | 'name'>
@@ -2020,7 +2119,7 @@ export type GetProductsByNameQuery = (
   { __typename?: 'Query' }
   & { products?: Maybe<Array<Maybe<(
     { __typename?: 'Product' }
-    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'picture2' | 'picture3' | 'picture1_delete_token' | 'picture2_delete_token' | 'picture3_delete_token' | 'updatedAt'>
     & { product_type?: Maybe<(
       { __typename?: 'ProductType' }
       & Pick<ProductType, 'id' | 'name'>
@@ -2038,7 +2137,7 @@ export type GetProductsByTypeAndNameQuery = (
   { __typename?: 'Query' }
   & { products?: Maybe<Array<Maybe<(
     { __typename?: 'Product' }
-    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'picture2' | 'picture3' | 'picture1_delete_token' | 'picture2_delete_token' | 'picture3_delete_token' | 'updatedAt'>
     & { product_type?: Maybe<(
       { __typename?: 'ProductType' }
       & Pick<ProductType, 'id' | 'name'>
@@ -2055,7 +2154,7 @@ export type GetProductQuery = (
   { __typename?: 'Query' }
   & { product?: Maybe<(
     { __typename?: 'Product' }
-    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'updatedAt'>
+    & Pick<Product, 'id' | 'code' | 'name' | 'detail' | 'cost_price' | 'sale_price' | 'remark' | 'picture1' | 'picture2' | 'picture3' | 'picture1_delete_token' | 'picture2_delete_token' | 'picture3_delete_token' | 'updatedAt'>
     & { product_type?: Maybe<(
       { __typename?: 'ProductType' }
       & Pick<ProductType, 'id' | 'name'>
@@ -2319,6 +2418,113 @@ export function useDeleteProductTypeMutation(baseOptions?: Apollo.MutationHookOp
 export type DeleteProductTypeMutationHookResult = ReturnType<typeof useDeleteProductTypeMutation>;
 export type DeleteProductTypeMutationResult = Apollo.MutationResult<DeleteProductTypeMutation>;
 export type DeleteProductTypeMutationOptions = Apollo.BaseMutationOptions<DeleteProductTypeMutation, DeleteProductTypeMutationVariables>;
+export const CreateProductDocument = gql`
+    mutation CreateProduct($p: ProductInput) {
+  createProduct(input: {data: $p}) {
+    product {
+      id
+    }
+  }
+}
+    `;
+export type CreateProductMutationFn = Apollo.MutationFunction<CreateProductMutation, CreateProductMutationVariables>;
+
+/**
+ * __useCreateProductMutation__
+ *
+ * To run a mutation, you first call `useCreateProductMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateProductMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createProductMutation, { data, loading, error }] = useCreateProductMutation({
+ *   variables: {
+ *      p: // value for 'p'
+ *   },
+ * });
+ */
+export function useCreateProductMutation(baseOptions?: Apollo.MutationHookOptions<CreateProductMutation, CreateProductMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<CreateProductMutation, CreateProductMutationVariables>(CreateProductDocument, options);
+      }
+export type CreateProductMutationHookResult = ReturnType<typeof useCreateProductMutation>;
+export type CreateProductMutationResult = Apollo.MutationResult<CreateProductMutation>;
+export type CreateProductMutationOptions = Apollo.BaseMutationOptions<CreateProductMutation, CreateProductMutationVariables>;
+export const UpdateProductDocument = gql`
+    mutation UpdateProduct($id: ID!, $product: editProductInput) {
+  updateProduct(input: {data: $product, where: {id: $id}}) {
+    product {
+      id
+    }
+  }
+}
+    `;
+export type UpdateProductMutationFn = Apollo.MutationFunction<UpdateProductMutation, UpdateProductMutationVariables>;
+
+/**
+ * __useUpdateProductMutation__
+ *
+ * To run a mutation, you first call `useUpdateProductMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUpdateProductMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [updateProductMutation, { data, loading, error }] = useUpdateProductMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *      product: // value for 'product'
+ *   },
+ * });
+ */
+export function useUpdateProductMutation(baseOptions?: Apollo.MutationHookOptions<UpdateProductMutation, UpdateProductMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UpdateProductMutation, UpdateProductMutationVariables>(UpdateProductDocument, options);
+      }
+export type UpdateProductMutationHookResult = ReturnType<typeof useUpdateProductMutation>;
+export type UpdateProductMutationResult = Apollo.MutationResult<UpdateProductMutation>;
+export type UpdateProductMutationOptions = Apollo.BaseMutationOptions<UpdateProductMutation, UpdateProductMutationVariables>;
+export const DeleteProductDocument = gql`
+    mutation DeleteProduct($id: ID!) {
+  deleteProduct(input: {where: {id: $id}}) {
+    product {
+      id
+      name
+    }
+  }
+}
+    `;
+export type DeleteProductMutationFn = Apollo.MutationFunction<DeleteProductMutation, DeleteProductMutationVariables>;
+
+/**
+ * __useDeleteProductMutation__
+ *
+ * To run a mutation, you first call `useDeleteProductMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeleteProductMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deleteProductMutation, { data, loading, error }] = useDeleteProductMutation({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useDeleteProductMutation(baseOptions?: Apollo.MutationHookOptions<DeleteProductMutation, DeleteProductMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<DeleteProductMutation, DeleteProductMutationVariables>(DeleteProductDocument, options);
+      }
+export type DeleteProductMutationHookResult = ReturnType<typeof useDeleteProductMutation>;
+export type DeleteProductMutationResult = Apollo.MutationResult<DeleteProductMutation>;
+export type DeleteProductMutationOptions = Apollo.BaseMutationOptions<DeleteProductMutation, DeleteProductMutationVariables>;
 export const AppLoginDocument = gql`
     mutation AppLogin($email: String!, $password: String!) {
   login(input: {identifier: $email, password: $password}) {
@@ -2592,6 +2798,11 @@ export const GetProductsDocument = gql`
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
   productTypes {
@@ -2642,6 +2853,11 @@ export const GetProductsByTypeDocument = gql`
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
 }
@@ -2689,6 +2905,11 @@ export const GetProductsByNameDocument = gql`
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
 }
@@ -2736,6 +2957,11 @@ export const GetProductsByTypeAndNameDocument = gql`
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
 }
@@ -2784,6 +3010,11 @@ export const GetProductDocument = gql`
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
   productTypes {

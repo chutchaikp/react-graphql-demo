@@ -1,9 +1,7 @@
-
-// /Users/apple / project@2021/upload_images
-
-import { Flex, VStack } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import React from 'react'
 import request from 'superagent';
+import { BiImageAdd } from "react-icons/bi";
 
 interface UploadImageProps {
 	photoId: number,
@@ -23,10 +21,8 @@ const UploadImage: React.FC<UploadImageProps> = ({ photoId, onProgress, onUpload
 					.field('upload_preset', process.env?.REACT_APP_UPLOAD_PRESET || "")
 					.field('file', file)
 					.field('multiple', true)
-
 					.field('tags', fileName) // ? `myphotoalbum,${title}` : 'myphotoalbum')
 					.field('context', fileName) // title ? `photo=${title}` : '')
-
 					.on('progress', (progress: any) => {
 						onProgress(photoId, file.name, Math.floor(progress.percent));
 					})
@@ -38,62 +34,31 @@ const UploadImage: React.FC<UploadImageProps> = ({ photoId, onProgress, onUpload
 			console.log(error)
 		}
 	}
+
 	return (
 		<Flex w="100%" direction="column">
 
-			<input
+
+			{/* <input
 				type="file"
 				id="fileupload"
 				accept="image/*"
-				// multiple="multiple"
-				// ref={fileInputEl =>
-				// 		(this.fileInputEl = fileInputEl)
-				// }
 				onChange={(e) =>
-					// this.onPhotoSelected(
-					// 		this.fileInputEl.files
-					// )
 					upload(e.target.files)
 				}
-			/>
+			/> */}
 
-			{/* Upload progress */}
+			<label htmlFor="file-upload"	>
 
-			<VStack>
-				{/* <div className="status">
-						{!response && <div>Uploading... {percent}%</div>}
-						{!response && <div>In progress</div>}
-						{response && (
-								<div className="status-code">
-										Upload completed with status code {response.status}
-								</div>
-						)}
-				</div>
-				<div className="progress-bar">
-						<div
-								className="progress"
-								role="progressbar"
-								style={{ width: percent + '%' }}
-						/>
-				</div> */}
+				<BiImageAdd fontSize="50px" color="teal" />
 
-				{/* {data && (
-						<div className="info">
-								<table>
-										<tbody>
-										{Object.keys(data).map(key => {
-												return (
-														<tr key={key}>
-																<td>{key}</td>
-																<td>{JSON.stringify(data[key])}</td>
-														</tr>
-												);
-										})}
-										</tbody>
-								</table>
-						</div>
-				)} */}
-			</VStack>
+			</label>
+			<input id="file-upload" type="file"
+				accept="image/*"
+				onChange={(e) =>
+					upload(e.target.files)
+				}
+				style={{ display: 'none', }} />
 
 		</Flex>
 	);

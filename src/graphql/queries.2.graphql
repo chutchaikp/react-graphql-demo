@@ -67,6 +67,11 @@ query GetProducts {
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
 
@@ -91,6 +96,11 @@ query GetProductsByType($type: ID) {
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
 }
@@ -110,6 +120,11 @@ query GetProductsByName($name: String) {
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
 }
@@ -129,6 +144,11 @@ query GetProductsByTypeAndName($type: ID, $name: String) {
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
 }
@@ -147,6 +167,11 @@ query GetProduct($id: ID!) {
     sale_price
     remark
     picture1
+    picture2
+    picture3
+    picture1_delete_token
+    picture2_delete_token
+    picture3_delete_token
     updatedAt
   }
 
