@@ -87,6 +87,8 @@ const ProductPage = (props: any) => {
 		return (<div>Loading !!!!!! xxx</div>)
 	}
 
+	debugger;
+
 	return (
 		<Flex w="100%" direction="column" p="1rem">
 			<Heading mb="1rem">
@@ -191,15 +193,7 @@ const ProductPage = (props: any) => {
 							<FormControl>
 								<label>
 									รูปภาพ
-									<UploadImageContainer
-										pictures={pictures}
-										onUpdated={(ps: any) => {
-											debugger;
-											// set product 
-											// setPictures(ps);
-											return true;
-										}}
-									/>
+									<UploadImageContainer />
 								</label>
 							</FormControl>
 

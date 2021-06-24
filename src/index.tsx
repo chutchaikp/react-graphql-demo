@@ -8,6 +8,9 @@ import { BrowserRouter } from 'react-router-dom';
 // import { Auth0Provider } from '@auth0/auth0-react'
 import { ChakraProvider, ColorModeScript, extendTheme, } from "@chakra-ui/react"
 import theme from "./theme"
+import store from './redux/app/store'
+import { Provider } from 'react-redux'
+
 require('dotenv').config()
 
 const { REACT_APP_GRAPHQL_SCHEMA } = process.env;
@@ -58,7 +61,9 @@ ReactDOM.render(
       <ApolloProvider client={client}>
         <ChakraProvider theme={theme}>
           {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
-          <MyRouter />
+          <Provider store={store}>
+            <MyRouter />
+          </Provider>
         </ChakraProvider>
       </ApolloProvider>
     </React.StrictMode>

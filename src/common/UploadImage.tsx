@@ -24,6 +24,7 @@ const UploadImage: React.FC<UploadImageProps> = ({ photoId, onProgress, onUpload
 					.field('tags', fileName) // ? `myphotoalbum,${title}` : 'myphotoalbum')
 					.field('context', fileName) // title ? `photo=${title}` : '')
 					.on('progress', (progress: any) => {
+						debugger; // url = ?
 						onProgress(photoId, file.name, Math.floor(progress.percent));
 					})
 					.end((error, response) => {
@@ -37,29 +38,12 @@ const UploadImage: React.FC<UploadImageProps> = ({ photoId, onProgress, onUpload
 
 	return (
 		<Flex w="100%" direction="column">
-
-
-			{/* <input
-				type="file"
-				id="fileupload"
-				accept="image/*"
-				onChange={(e) =>
-					upload(e.target.files)
-				}
-			/> */}
-
 			<label htmlFor="file-upload"	>
-
 				<BiImageAdd fontSize="50px" color="teal" />
-
 			</label>
-			<input id="file-upload" type="file"
-				accept="image/*"
-				onChange={(e) =>
-					upload(e.target.files)
-				}
-				style={{ display: 'none', }} />
-
+			<input id="file-upload" type="file" accept="image/*" onChange={(e) =>
+				upload(e.target.files)
+			} style={{ display: 'none', }} />
 		</Flex>
 	);
 }
