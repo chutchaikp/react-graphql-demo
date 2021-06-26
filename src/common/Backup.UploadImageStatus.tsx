@@ -24,7 +24,7 @@
 
 import { Button } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { UploadImageType } from '../common/UploadImageType';
+import { UploadImageType } from './UploadImageType';
 import emptyImg from '../imgs/empty.jpeg'
 import styles from '../App.module.css'
 import request from 'superagent';
@@ -72,7 +72,7 @@ const UploadImageStatus: React.FC<UploadImageStatusProps> = ({ uploads }) => {
 			<div>
 				{photos && photos.map((t: UploadImageType) => {
 					return (
-						<div key={t.photoId} style={{ margin: "1rem" }}>
+						<div key={t.imageId} style={{ margin: "1rem" }}>
 							<div>
 								<img width="200px" src={t.url || emptyImg} alt={t.fileName} />
 							</div>

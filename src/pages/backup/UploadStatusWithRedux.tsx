@@ -7,7 +7,7 @@ import styles from '../../App.module.css'
 import emptyImg from '../../imgs/empty.jpeg'
 import request from 'superagent';
 
-const UploadStatusV3 = () => {
+const UploadStatusWithRedux = () => {
 
 	const dispatch = useDispatch()
 	const globalUpload = useSelector(allUpload)
@@ -44,7 +44,7 @@ const UploadStatusV3 = () => {
 		<Flex direction="column">
 			{globalUpload.map((t: any) => {
 				return (
-					<div key={t.photoId} style={{
+					<div key={t.etag} style={{
 						margin: "1rem"
 					}}>
 						<HStack spacing="1.5rem">
@@ -76,7 +76,7 @@ const UploadStatusV3 = () => {
 		</Flex>
 	</div>);
 }
-export default UploadStatusV3
+export default UploadStatusWithRedux
 
 
 

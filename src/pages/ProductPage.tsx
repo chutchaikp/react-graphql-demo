@@ -5,7 +5,7 @@ import React, { useRef, useState } from 'react'
 
 import { useHistory } from 'react-router-dom';
 import { useGetProductQuery } from '../types/graphql.v1';
-import UploadImageContainer from './UploadImageContainer';
+import UploadImageContainer from './backup/UploadImageContainer';
 
 const ProductPage = (props: any) => {
 

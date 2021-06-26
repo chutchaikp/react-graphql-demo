@@ -1,5 +1,6 @@
 export type UploadImageType = {
-	photoId: number;
+	// photoId: number;
+	imageId?: string, // unique 
 	fileName: string;
 	percent?: number; // percent uploading
 	url?: string;

@@ -7,7 +7,7 @@ onPhotoSelected(files) {
         const title = this.titleEl.value;
 
         for (let file of files) {
-            const photoId = this.photoId++;
+            const photoId = this.photo Id++;
             const fileName = file.name;
             request.post(url)
                 .field('upload_preset', this.context.uploadPreset)

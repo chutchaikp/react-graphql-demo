@@ -2,7 +2,7 @@ export const Routes = [
 	{
 		path: ["/", "menu"],
 		exact: true,
-		component: "ProductsPage", // "ProductTypes",
+		component: "PhotoUploader", // "ProductTypes",ProductsPage
 	},
 	// {
 	// 	path: ["/home", "home"],
